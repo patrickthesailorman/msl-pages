@@ -1,5 +1,5 @@
 /**
- * Song page controller
+ * Song page controller.
  */
 export default class songCtrl {
   /*@ngInject*/
@@ -21,7 +21,7 @@ export default class songCtrl {
       this.songId = $stateParams.songId;
       this.$scope = $scope;
       this.model = songModel;
-      //Initialization
+      // Initialization
       this._getSong();
     }
     else {
@@ -30,7 +30,7 @@ export default class songCtrl {
   }
 
   /**
-   * Gets the song using the songId
+   * Gets the song using the songId.
    * @private
    */
   _getSong() {
@@ -41,7 +41,7 @@ export default class songCtrl {
   }
 
   /**
-   * Gets the similar artists of the song's artist
+   * Gets the similar artists of the song's artist.
    * @param {SongInfoEntity} song
    * @private
    */

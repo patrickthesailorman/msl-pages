@@ -17,7 +17,7 @@
         "catch"
     ],
     "requireOperatorBeforeLineBreak": true,
-    "requireCamelCaseOrUpperCaseIdentifiers": true,
+    "requireCamelCaseOrUpperCaseIdentifiers": false,
     "maximumLineLength": {
       "value": 100,
       "allowComments": true,
@@ -62,17 +62,20 @@
     "requireSpaceAfterBinaryOperators": true,
     "requireSpacesInConditionalExpression": true,
     "requireSpaceBeforeBlockStatements": true,
+    "requireSpaceAfterLineComment": true,
+    "requireCapitalizedComments": true,
     "requireLineFeedAtFileEnd": true,
     "requireSpacesInsideObjectBrackets": "all",
     "disallowSpacesInsideArrayBrackets": "all",
     "disallowSpacesInsideParentheses": true,
 
     "jsDoc": {
+        "requireDescriptionCompleteSentence": true,
+        "disallowNewlineAfterDescription": true,
         "checkAnnotations": true,
         "checkParamNames": true,
         "requireParamTypes": true,
-        "checkReturnTypes": true,
-        "checkTypes": true
+        "checkReturnTypes": true
     },
 
     "disallowMultipleLineBreaks": true,

@@ -1,5 +1,5 @@
 /**
- * Angular config for registration page
+ * Angular config for registration page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function registrationRoute($stateProvider) {

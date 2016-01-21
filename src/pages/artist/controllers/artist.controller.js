@@ -1,5 +1,5 @@
 /**
- * Artist page controller
+ * Artist page controller.
  */
 
 export default class artistCtrl {
@@ -20,7 +20,7 @@ export default class artistCtrl {
       this.artistId = $stateParams.artistId;
       this.authentication = authentication;
       this.activeTab = 'songs';
-      //Initialize data
+      // Initialize data
       this.getArtist();
     }
     else {
@@ -29,7 +29,7 @@ export default class artistCtrl {
   }
 
   /**
-   * Gets the artists his similarArtists and albums
+   * Gets the artists his similarArtists and albums.
    */
   getArtist() {
     this.model.getArtist(this.artistId, (artist) => {
@@ -41,7 +41,7 @@ export default class artistCtrl {
   }
 
   /**
-   * Gets the similar artists from a list of artist ids
+   * Gets the similar artists from a list of artist ids.
    * @param {String[]} similarArtistsList
    */
   getSimilarArtists(similarArtistsList) {
@@ -51,7 +51,7 @@ export default class artistCtrl {
   }
 
   /**
-   * Gets albums from a list of album ids
+   * Gets albums from a list of album ids.
    * @param {String[]} albumsList
    */
   getAlbums(albumsList) {
@@ -61,7 +61,7 @@ export default class artistCtrl {
   }
 
   /**
-   * Gets songs from the artist
+   * Gets songs from the artist.
    * @param {ArtistInfoEntity} artist
    */
   getSongs(artist) {
@@ -70,4 +70,3 @@ export default class artistCtrl {
     });
   }
 }
-

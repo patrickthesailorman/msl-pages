@@ -1,7 +1,6 @@
 import {LOGIN_EDGE} from '../../../constants.js';
 
 /**
- * logout store service
  * @name logoutStore
  * @param {request} request
  * @param {entityMapper} entityMapper
@@ -14,7 +13,7 @@ function logoutStore (request, entityMapper, StatusResponseEntity) {
   const API_REQUEST_PATH = `${LOGIN_EDGE}logout`;
   return {
     /**
-     * make logout request
+     * Make logout request.
      * @name logoutStore#push
      * @return {StatusResponseEntity}
      */

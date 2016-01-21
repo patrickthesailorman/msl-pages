@@ -1,7 +1,7 @@
 import {USER_REDIRECT_TO, ROLE_USER} from 'constants';
 
 /**
- * angular config for my page
+ * Angular config for my page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function userRoute($stateProvider) {

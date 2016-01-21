@@ -1,7 +1,7 @@
 import { ROLE_USER } from '../../../constants.js';
 
 /**
- * start rating controller
+ * Start rating controller.
  */
 export default class ratingController {
   /*@ngInject*/
@@ -30,7 +30,7 @@ export default class ratingController {
   }
 
   /**
-   * Update the stars using index
+   * Update the stars using index.
    * @param {number} index
    */
   async rate(index) {
@@ -52,7 +52,7 @@ export default class ratingController {
   }
 
   /**
-   * Update the star rating checking the personal rating
+   * Update the star rating checking the personal rating.
    * @private
    */
   _updateStarRating() {
@@ -66,7 +66,7 @@ export default class ratingController {
   }
 
   /**
-   * Set the new star rating and update the stars
+   * Set the new star rating and update the stars.
    * @param {number} rating
    * @private
    */
@@ -76,7 +76,7 @@ export default class ratingController {
   }
 
   /**
-   * Update the stars
+   * Update the stars.
    * @private
    */
   _updateStars() {

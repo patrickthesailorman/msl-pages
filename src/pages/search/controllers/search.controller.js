@@ -1,9 +1,14 @@
 /**
  * Search page controller
- * @param {ui.router.state.$stateParams} $stateParams
  */
 export default class searchCtrl {
   /*@ngInject*/
+
+  /**
+  * @constructor
+  * @param {ui.router.state.$stateParams} $stateParams
+  * @param {$log} $log
+  */
 
   constructor($stateParams, $log) {
     // Get search query from $stateParams

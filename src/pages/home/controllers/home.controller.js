@@ -1,5 +1,5 @@
 /**
- * Home page controller
+ * Home page controller.
  */
 export default class homeCtrl {
   /*@ngInject*/
@@ -35,19 +35,19 @@ export default class homeCtrl {
     this._getCurrentTab();
     filterModel.applyCurrentFilters(this);
 
-    //Update song album and artist list on removed from library
+    // Update song album and artist list on removed from library
     $rootScope.$on('deletedFromLibrary', (event, data) => {
       filterModel.applyCurrentFilters(this);
     });
 
-    //Update song album and artist list on added to library
+    // Update song album and artist list on added to library
     $rootScope.$on('addedToLibrary', (event, data) => {
       filterModel.applyCurrentFilters(this);
     });
   }
 
   /**
-   * Sets the selected tab on the search params
+   * Sets the selected tab on the search params.
    * @param {string} tab
    */
   selectTab(tab) {
@@ -55,7 +55,7 @@ export default class homeCtrl {
   }
 
   /**
-   * Called when a filter is applied to the songs
+   * Called when a filter is applied to the songs.
    * @param {SongInfoEntity[]} songs
    */
   songsFiltered(songs) {
@@ -64,7 +64,7 @@ export default class homeCtrl {
   }
 
   /**
-   * Called when a filter is applied to the albums
+   * Called when a filter is applied to the albums.
    * @param {AlbumInfoEntity[]} albums
    */
   albumsFiltered(albums) {
@@ -73,7 +73,7 @@ export default class homeCtrl {
   }
 
   /**
-   * Called when a filter is applied to the artists
+   * Called when a filter is applied to the artists.
    * @param {ArtistInfoEntity[]} artists
    */
   artistsFiltered(artists) {
@@ -83,7 +83,7 @@ export default class homeCtrl {
   }
 
   /**
-   * Gets the current active tab from $location search
+   * Gets the current active tab from $location search.
    * @private
    */
   _getCurrentTab() {

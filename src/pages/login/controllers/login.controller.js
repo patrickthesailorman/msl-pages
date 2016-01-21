@@ -1,5 +1,5 @@
 /**
- * login page main controller
+ * Login page main controller.
  * @param {$rootScope.Scope} $scope
  * @param {authentication} authentication
  * @param {ui.router.state.$state} $state
@@ -8,7 +8,7 @@ export default class loginCtrl {
   /*@ngInject*/
 
   /**
-   * user form submit action
+   * User form submit action.
    */
 
   constructor($scope, authentication, $state) {
@@ -16,7 +16,7 @@ export default class loginCtrl {
       delete this.hasError;
       try {
         await authentication.authenticate(this.email, this.password);
-        // if authentication is success then redirect user to home page
+        // If authentication is success then redirect user to home page
         $state.go('msl.home');
       } catch(e) {
         this.hasError = true;

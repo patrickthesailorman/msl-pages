@@ -1,7 +1,6 @@
 /**
- * Song box directive
- * @author anram88
- * @returns {{restrict: string, scope: {song: string}, template: *, controller: string, controllerAs: string}}
+ * Song box directive.
+ * @returns {restrict: string, scope: {song: string}, template: *, controller: string, controllerAs: string}
  */
 export default function songBox() {
 
@@ -17,4 +16,3 @@ export default function songBox() {
     controllerAs: 'vm',
   };
 }
-

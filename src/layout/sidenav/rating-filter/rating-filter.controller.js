@@ -1,6 +1,6 @@
 import {RATING_FACET_ID} from '../../../constants.js';
 /**
- * Rating filter controller
+ * Rating filter controller.
  */
 export default class ratingFilterCtrl {
   /*@ngInject*/
@@ -25,7 +25,7 @@ export default class ratingFilterCtrl {
   }
 
   /**
-   * Determines if the given rating is the active one
+   * Determines if the given rating is the active one.
    * @param {string} ratingId
    * @return {Boolean}
    */
@@ -34,7 +34,7 @@ export default class ratingFilterCtrl {
   }
 
   /**
-   * Applies rating filter on change
+   * Applies rating filter on change.
    * @param {string} ratingId
    */
   applyRatingFilter(ratingId) {
@@ -45,7 +45,7 @@ export default class ratingFilterCtrl {
   }
 
   /**
-   * Gets the the star list from a particular rating
+   * Gets the the star list from a particular rating.
    * @param {Object} rating
    * @returns {Object[]}
    */
@@ -63,7 +63,7 @@ export default class ratingFilterCtrl {
   }
 
   /**
-   * Update the stars for each rate
+   * Update the stars for each rate.
    * @param {int} starRating
    * @returns {Object[]}
    * @private
@@ -81,7 +81,7 @@ export default class ratingFilterCtrl {
   }
 
   /**
-   * Gets all rating facets
+   * Gets all rating facets.
    * @private
    */
   async _getRatingFacets () {

@@ -1,7 +1,7 @@
 import { ROLE_ANONYMOUS, USER_REDIRECT_TO } from '../../constants.js';
 
 /**
- * Angular config for Library page
+ * Angular config for Library page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function libraryRoute($stateProvider) {

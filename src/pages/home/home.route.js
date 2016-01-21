@@ -1,5 +1,5 @@
 /**
- * Angular config for Home page
+ * Angular config for Home page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function homeRoute($stateProvider) {

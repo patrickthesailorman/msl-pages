@@ -1,5 +1,5 @@
 /**
- * Angular config for Search page
+ * Angular config for Search page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function searchPageRoute($stateProvider) {

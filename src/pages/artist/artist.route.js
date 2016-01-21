@@ -1,5 +1,5 @@
 /**
- * Angular config for Artist page
+ * Angular config for Artist page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function artistPageRoute($stateProvider) {

@@ -1,7 +1,7 @@
 import {ACCOUNT_EDGE} from '../../../constants.js';
 
 /**
- * registration store service
+ * Registration store service.
  * @name registrationStore
  * @param {request} request
  * @param {entityMapper} entityMapper
@@ -14,7 +14,7 @@ function registrationStore (request, entityMapper, StatusResponseEntity) {
   const API_REQUEST_PATH = `${ACCOUNT_EDGE}users/register`;
   return {
     /**
-     * make registration request
+     * Make registration request.
      * @name registrationStore#push
      * @param {string} email
      * @param {string} password

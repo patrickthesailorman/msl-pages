@@ -1,5 +1,5 @@
 /**
- * Rating Model
+ * Rating Model.
  */
 class ratingModel {
   /*@ngInject*/
@@ -11,7 +11,7 @@ class ratingModel {
   }
 
   /**
-   * rates an entity
+   * Rates an entity.
    * @name ratingModel#rate
    * @param {string} entityId
    * @param {string} entityType
@@ -32,7 +32,7 @@ class ratingModel {
   }
 
   /**
-   * Push to the album store the new rating
+   * Push to the album store the new rating.
    * @param {string} albumId
    * @param {number} rating
    * @private
@@ -42,7 +42,7 @@ class ratingModel {
   }
 
   /**
-   * Push to the song store the new rating
+   * Push to the song store the new rating.
    * @param {string} songId
    * @param {number} rating
    * @private
@@ -52,7 +52,7 @@ class ratingModel {
   }
 
   /**
-   * Push to the artist store the new rating
+   * Push to the artist store the new rating.
    * @param {string} artistId
    * @param {number} rating
    * @private

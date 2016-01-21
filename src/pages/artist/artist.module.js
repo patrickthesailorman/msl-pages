@@ -1,11 +1,11 @@
-//Styles
+// Styles
 import './stylesheets/artist.scss';
 
-//Dependencies
+// Dependencies
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-//Module
+// Module
 import dataStore from 'modules/datastore/module';
 import songsTable from 'modules/songs-table/module';
 import authentication from 'modules/authentication/module';

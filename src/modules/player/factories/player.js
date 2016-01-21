@@ -5,8 +5,7 @@ import {EventEmitter} from 'events';
 const EVENT_PLAYER_STATE_CHANGE = 'visibilityStateChange';
 
 /**
- * player service
- * this service stores state about currently playing song
+ * This service stores state about currently playing song.
  * @name player
  * @param {songStore} songStore
  * @returns {*}
@@ -19,7 +18,7 @@ export default function player (songStore) {
 
   return {
     /**
-     * player state change listener
+     * Player state change listener.
      * @name player#addStateChangeListener
      * @param {Function} cb
      */
@@ -28,7 +27,7 @@ export default function player (songStore) {
       events.on(EVENT_PLAYER_STATE_CHANGE, cb);
     },
     /**
-     * remove player stage listener
+     * Remove player stage listener.
      * @name player#removeStateChangeListener
      * @param {Function} cb
      */
@@ -36,7 +35,7 @@ export default function player (songStore) {
       events.removeListener(EVENT_PLAYER_STATE_CHANGE, cb);
     },
     /**
-     * check if player is active
+     * Check if player is active.
      * @name player#isActive
      * @return {boolean}
      */
@@ -44,7 +43,7 @@ export default function player (songStore) {
       return !!active;
     },
     /**
-     * get currently playing song entity
+     * Get currently playing song entity.
      * @name player#getSongEntity
      * @return {SongInfoEntity|undefined}
      */
@@ -52,7 +51,7 @@ export default function player (songStore) {
       return songEntity;
     },
     /**
-     * start player and save current song state
+     * Start player and save current song state.
      * @name player#play
      * @param {string} songId
      */
@@ -63,7 +62,7 @@ export default function player (songStore) {
       events.emit(EVENT_PLAYER_STATE_CHANGE);
     },
     /**
-     * remove currently playing song sate
+     * Remove currently playing song sate.
      * @name player#stop
      */
     stop() {

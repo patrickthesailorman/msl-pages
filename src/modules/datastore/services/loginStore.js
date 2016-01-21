@@ -1,7 +1,6 @@
 import {LOGIN_EDGE} from '../../../constants.js';
 
 /**
- * login store service
  * @name loginStore
  * @param {request} request
  * @param {entityMapper} entityMapper
@@ -14,7 +13,7 @@ function loginStore (request, entityMapper, LoginSuccessResponseEntity) {
   const API_REQUEST_PATH = `${LOGIN_EDGE}login`;
   return {
     /**
-     * make login request
+     * Make login request.
      * @name loginStore#push
      * @param {string} email
      * @param {string} password

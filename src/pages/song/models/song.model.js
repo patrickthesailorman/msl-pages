@@ -1,9 +1,9 @@
 /**
- * Song model
+ * Song model.
  * @param {$log} $log
  * @param {songStore} songStore
  * @param {$rootScope} $rootScope
- * @returns {{getSong: getSong, getSongs: getSongs, song: null, songs: null}}
+ * @returns {getSong: getSong, getSongs: getSongs, song: null, songs: null}}
  */
 export default function songModel($log, songStore, $rootScope) {
   let _model = {
@@ -17,16 +17,16 @@ export default function songModel($log, songStore, $rootScope) {
   return _model;
 
   /**
-   * Retrieves information of a single song
+   * Retrieves information of a single song.
    * @param {int} songId
-   * @param {function} done
+   * @param {function} opt_done
    */
-  async function getSong(songId, done) {
+  async function getSong(songId, opt_done) {
     _model.isProcessing = true;
     try {
       const song = await songStore.fetch(songId);
-      if(done) {
-        done(song);
+      if(opt_done) {
+        opt_done(song);
       }
     }
     catch(err) {
@@ -36,7 +36,7 @@ export default function songModel($log, songStore, $rootScope) {
   }
 
   /**
-   * Gets all songs
+   * Gets all songs.
    */
   async function getSongs() {
     _model.isProcessing = true;
@@ -52,16 +52,16 @@ export default function songModel($log, songStore, $rootScope) {
   }
 
   /**
-   * Gets songs filtered by rating and genre
+   * Gets songs filtered by rating and genre.
    * @param {string} facets
-   * @param {function} done
+   * @param {function} opt_done
    */
-  async function filterSongs(facets, done) {
+  async function filterSongs(facets, opt_done) {
     _model.isProcessing = true;
     try {
       const songsList = await songStore.fetchAll(facets);
-      if(done) {
-        done(songsList.songs);
+      if(opt_done) {
+        opt_done(songsList.songs);
       }
     }
     catch(error) {

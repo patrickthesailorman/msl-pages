@@ -1,7 +1,7 @@
 /**
- * Songs table directive
- * @returns {{restrict: string, template: *, scope: {loading: string, content: string}, controller: string,
- *     controllerAs: string}}
+ * Songs table directive.
+ * @returns { restrict: string, template: *, scope: {loading: string, content: string}, controller: string,
+ *     controllerAs: string }
  */
 export default function songsTable () {
   'ngInject';

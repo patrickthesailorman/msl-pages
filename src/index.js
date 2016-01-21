@@ -1,4 +1,4 @@
-//Dependencies
+// Dependencies
 import 'angular-material/angular-material.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -17,10 +17,10 @@ import angularMaterial from 'angular-material';
 import slick from 'slick-carousel';
 import toastr from 'angular-toastr';
 
-//Layout
+// Layout
 import layout from './layout/layout.module.js';
 
-//Pages
+// Pages
 import artistPage from './pages/artist/artist.module.js';
 import albumPage from './pages/album/album.module.js';
 import errorPage from './pages/error/error.module.js';
@@ -34,7 +34,7 @@ import libraryPage from './pages/library/library.module.js';
 
 import starRating from './modules/star-rating/module.js';
 
-//Modules
+// Modules
 import authentication from 'modules/authentication/module';
 import player from 'modules/player/module';
 import permission from './modules/permission/module';

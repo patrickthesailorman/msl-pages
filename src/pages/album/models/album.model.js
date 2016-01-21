@@ -1,11 +1,10 @@
 /**
- * Album Model
- * @author anram88
+ * Album Model.
  * @param {albumStore} albumStore
  * @param {songStore} songStore
  * @param {$log} $log
  * @param {$rootScope} $rootScope
- * @returns {{getAlbum: getAlbum, getAlbums: getAlbums, album: null, albums: null}}
+ * @returns {getAlbum: getAlbum, getAlbums: getAlbums, album: null, albums: null}}
  */
 export default function albumModel(albumStore, songStore, $log, $rootScope) {
 
@@ -21,7 +20,7 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
   return _model;
 
   /**
-   * Gets a specific album
+   * Gets a specific album.
    * @param {int} albumId
    */
   async function getAlbum(albumId) {
@@ -36,17 +35,17 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
   }
 
   /**
-   * Gets a list of songs
+   * Gets a list of songs.
    * @param {string} albumId
-   * @param {function} done
+   * @param {function} opt_done
    */
-  async function getAlbumSongs(albumId, done) {
+  async function getAlbumSongs(albumId, opt_done) {
     _model.isProcessing = true;
     try {
       const album = await albumStore.fetch(albumId);
       await getSongsById(album.songsList);
-      if(done) {
-        done(_model.songs);
+      if(opt_done) {
+        opt_done(_model.songs);
       }
     }
     catch(error) {
@@ -56,7 +55,7 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
   }
 
   /**
-   * Gets a list of songs
+   * Gets a list of songs.
    * @param {string[]} songIds
    */
   async function getSongsById(songIds) {
@@ -73,7 +72,7 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
   }
 
   /**
-   * Gets all albums
+   * Gets all albums.
    */
   async function getAlbums() {
     _model.isProcessing = true;
@@ -89,16 +88,16 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
   }
 
   /**
-   * Gets a list of albums filtered by rating and genre
+   * Gets a list of albums filtered by rating and genre.
    * @param {string} facets
-   * @param {function} done
+   * @param {function} opt_done
    */
-  async function filterAlbums(facets, done) {
+  async function filterAlbums(facets, opt_done) {
     _model.isProcessing = true;
     try {
       const albumList = await albumStore.fetchAll(facets);
-      if(done) {
-        done(albumList.albums);
+      if(opt_done) {
+        opt_done(albumList.albums);
       }
     }
     catch(error) {

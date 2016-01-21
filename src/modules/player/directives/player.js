@@ -1,5 +1,5 @@
 /**
- * player directive controller
+ * Player directive controller.
  * @param {$rootScope.Scope} $scope
  * @param {player} player
  */
@@ -7,8 +7,8 @@ function playerController ($scope, player) {
   'ngInject';
 
   /**
-   * listener for player state change
-   * this is not angular action so we need to digest scope manually
+   * Listener for player state change
+   * this is not angular action so we need to digest scope manually.
    */
   let onPlayerStateChange = () => {
     this.active = player.isActive();
@@ -17,13 +17,13 @@ function playerController ($scope, player) {
   };
 
   /**
-   * close player user action
+   * Close player user action.
    */
   this.close = () => player.stop();
 
-  // add player state change listener
+  // Add player state change listener
   player.addStateChangeListener(onPlayerStateChange);
-  // when scope destroys then remove player state change listener
+  // When scope destroys then remove player state change listener
   $scope.$on('$destroy', () => player.removeStateChangeListener(onPlayerStateChange));
 }
 

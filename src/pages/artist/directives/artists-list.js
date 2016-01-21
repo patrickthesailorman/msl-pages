@@ -1,7 +1,6 @@
 /**
- * Artist List directive
- * @author anram88
- * @returns {{restrict: string, scope: {artists: string}, template: *, controller: string, controllerAs: string}}
+ * Artist List directive.
+ * @returns {restrict: string, scope: {artists: string}, template: *, controller: string, controllerAs: string}
  */
 export default function artistsList() {
 
@@ -15,4 +14,3 @@ export default function artistsList() {
     template: require('../templates/artist-list.html'),
   };
 }
-

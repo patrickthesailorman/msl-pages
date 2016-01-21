@@ -1,7 +1,6 @@
 /**
- * Artist box directive
- * @author anram88
- * @returns {{restrict: string, scope: {artist: string}, template: *, controller: string, controllerAs: string}}
+ * Artist box directive.
+ * @returns {restrict: string, scope: {artist: string}, template: *, controller: string, controllerAs: string}
  */
 export default function artistsBox() {
 
@@ -17,4 +16,3 @@ export default function artistsBox() {
     controllerAs: 'vm',
   };
 }
-

@@ -1,5 +1,5 @@
 /**
- * Library model
+ * Library model.
  */
 export default class libraryModel {
 
@@ -18,7 +18,7 @@ export default class libraryModel {
   }
 
   /**
-   * Retrieves the library data (songs, artists, albums)
+   * Retrieves the library data (songs, artists, albums).
    */
   async getLibrary() {
     try {
@@ -34,7 +34,7 @@ export default class libraryModel {
   }
 
   /**
-   * Adds selected song to library
+   * Adds selected song to library.
    * @param {string} songId
    */
   async addSongToLibrary(songId) {
@@ -53,7 +53,7 @@ export default class libraryModel {
   }
 
   /**
-   * Adds selected album into library
+   * Adds selected album into library.
    * @param {string} albumId
    */
   async addAlbumToLibrary(albumId) {
@@ -72,7 +72,7 @@ export default class libraryModel {
   }
 
   /**
-   * Adds selected artist into library
+   * Adds selected artist into library.
    * @param {string} artistId
    */
   async addArtistToLibrary(artistId) {
@@ -91,7 +91,7 @@ export default class libraryModel {
   }
 
   /**
-   * Removes selected song from library
+   * Removes selected song from library.
    * @param {string} songId
    * @param {string} timestamp
    */
@@ -111,7 +111,7 @@ export default class libraryModel {
   }
 
   /**
-   * Removes selected album from library
+   * Removes selected album from library.
    * @param {string} albumId
    * @param {string} timestamp
    */
@@ -131,7 +131,7 @@ export default class libraryModel {
   }
 
   /**
-   * Removes selected artist from library
+   * Removes selected artist from library.
    * @param {string} artistId
    * @param {string} timestamp
    */
