@@ -4,3 +4,4 @@
 /coverage
 /swagger/api/swagger/swagger.yaml
 /swagger/api/swagger/paths.yaml
+npm-debug.log
