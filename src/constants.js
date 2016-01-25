@@ -7,7 +7,7 @@ export const RATING_FACET_ID = 'A2';
 export const PAGE_SIZE = 12;
 
 /*RESOURCES*/
-export const LOGIN_EDGE = `:${process.env.LOGIN_PORT}/msl/v1/loginedge/`;
-export const ACCOUNT_EDGE = `:${process.env.ACCOUNT_PORT}/msl/v1/accountedge/`;
-export const CATALOG_EDGE = `:${process.env.CATALOG_PORT}/msl/v1/catalogedge/`;
-export const RATINGS_EDGE = `:${process.env.RATINGS_PORT}/msl/v1/ratingsedge/`;
+export const LOGIN_EDGE = `:${process.env.LOGIN_PORT}/login-edge/`;
+export const ACCOUNT_EDGE = `:${process.env.ACCOUNT_PORT}/account-edge/`;
+export const CATALOG_EDGE = `:${process.env.CATALOG_PORT}/catalog-edge/`;
+export const RATINGS_EDGE = `:${process.env.RATINGS_PORT}/ratings-edge/`;

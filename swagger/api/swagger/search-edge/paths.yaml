@@ -1,4 +1,4 @@
-/msl/v1/searchedge/search:
+/search-edge/search:
   x-swagger-router-controller: search_controller
   get:
     description: Search things that match a user provided string

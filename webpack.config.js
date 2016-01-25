@@ -23,7 +23,7 @@ if (_.isUndefined(process.env.NODE_ENV)) {
  * set api host environment as swagger host.
  */
 if (_.isUndefined(process.env.API_HOST)) {
-  process.env.API_HOST = "http://local.msl.dev";
+  process.env.API_HOST = "http://msl.kenzanlabs.com";
 
   if (argv.mock || process.env.npm_config_mock) {
     process.env.LOGIN_PORT = process.env.ACCOUNT_PORT = process.env.CATALOG_PORT = process.env.RATINGS_PORT = "10010";

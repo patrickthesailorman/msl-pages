@@ -1,4 +1,4 @@
-/msl/v1/ratingsedge/rateartist/{artistId}:
+/ratings-edge/rateartist/{artistId}:
   x-swagger-router-controller: rating_controller
   put:
     description: Update your rating of an artist.
@@ -37,7 +37,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/ratingsedge/ratealbum/{albumId}:
+/ratings-edge/ratealbum/{albumId}:
   x-swagger-router-controller: rating_controller
   put:
     description: Update your rating of an album.
@@ -76,7 +76,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/ratingsedge/ratesong/{songId}:
+/ratings-edge/ratesong/{songId}:
   x-swagger-router-controller: rating_controller
   put:
     description: Update your rating of a song.
@@ -115,7 +115,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/ratingsedge/commentsong/{songId}:
+/ratings-edge/commentsong/{songId}:
   x-swagger-router-controller: rating_controller
   put:
     description: Make a comment about a song

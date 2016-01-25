@@ -1,4 +1,4 @@
-/msl/v1/loginedge/login:
+/login-edge/login:
   x-swagger-router-controller: login_controller
   post:
     description: Logs a user into the system
@@ -37,7 +37,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/loginedge/logout:
+/login-edge/logout:
   x-swagger-router-controller: login_controller
   post:
     description: Logs a user out of the system
@@ -59,7 +59,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/loginedge/resetpassword:
+/login-edge/resetpassword:
   # binds a127 app logic to a route
   x-swagger-router-controller: login_controller
   post:

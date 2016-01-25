@@ -1,4 +1,4 @@
-/msl/v1/accountedge/users/register:
+/account-edge/users/register:
   x-swagger-router-controller: registration_controller
   post:
     description: "Register a new user"
@@ -38,7 +38,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/recentsongs:
+/account-edge/users/recentsongs:
   x-swagger-router-controller: history_controller
   get:
     description: Get recently played songs
@@ -58,7 +58,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/mylibrary:
+/account-edge/users/mylibrary:
   x-swagger-router-controller: mylibrary_controller
   get:
     description: "Get the user's library of favorites"
@@ -78,7 +78,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/profile:
+/account-edge/users/profile:
   x-swagger-router-controller: catalog_controller
   get:
     description: "Get the current user's account info"
@@ -98,7 +98,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/mylibrary/addsong/{songId}:
+/account-edge/users/mylibrary/addsong/{songId}:
   x-swagger-router-controller: mylibrary_controller
   put:
     description: "Adds a song to the user library"
@@ -125,7 +125,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/mylibrary/addalbum/{albumId}:
+/account-edge/users/mylibrary/addalbum/{albumId}:
   x-swagger-router-controller: mylibrary_controller
   put:
     description: "Adds a album to the user library"
@@ -152,7 +152,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/mylibrary/addartist/{artistId}:
+/account-edge/users/mylibrary/addartist/{artistId}:
   x-swagger-router-controller: mylibrary_controller
   put:
     description: "Adds a artist to the user library"
@@ -179,7 +179,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/mylibrary/removesong/{songId}/{timestamp}:
+/account-edge/users/mylibrary/removesong/{songId}/{timestamp}:
   x-swagger-router-controller: mylibrary_controller
   delete:
     description: "Removes a song to the user library"
@@ -212,7 +212,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/mylibrary/removealbum/{albumId}/{timestamp}:
+/account-edge/users/mylibrary/removealbum/{albumId}/{timestamp}:
   x-swagger-router-controller: mylibrary_controller
   delete:
     description: "Removes an album to the user library"
@@ -245,7 +245,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/accountedge/users/mylibrary/removeartist/{artistId}/{timestamp}:
+/account-edge/users/mylibrary/removeartist/{artistId}/{timestamp}:
   x-swagger-router-controller: mylibrary_controller
   delete:
     description: "Removes an artist to the user library"

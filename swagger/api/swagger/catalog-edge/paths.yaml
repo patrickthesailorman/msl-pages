@@ -1,4 +1,4 @@
-/msl/v1/catalogedge/song/{songId}:
+/catalog-edge/song/{songId}:
   x-swagger-router-controller: catalog_controller
   get:
     description: "Get a song's info from the database"
@@ -27,7 +27,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/catalogedge/album/{albumId}:
+/catalog-edge/album/{albumId}:
   x-swagger-router-controller: catalog_controller
   get:
     description: Get data for an Album of songs
@@ -56,7 +56,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/catalogedge/artist/{artistId}:
+/catalog-edge/artist/{artistId}:
   x-swagger-router-controller: catalog_controller
   get:
     description: Get data on an Artist
@@ -85,7 +85,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/catalogedge/facet/{facetId}:
+/catalog-edge/facet/{facetId}:
   x-swagger-router-controller: facet_controller
   get:
     description: Get a facet in the heirarchy. Passing a facetId of '~' retrieves the root facet.
@@ -114,7 +114,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/catalogedge/browse/album:
+/catalog-edge/browse/album:
   x-swagger-router-controller: catalog_controller
   get:
     description: "Get browsing data for albums in the catalog. The sort order is predetermined: if one or more facets are passed then the order will be alphabetical ascending by album name, if no facets are passed then the results will be in featured order."
@@ -143,7 +143,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/catalogedge/browse/artist:
+/catalog-edge/browse/artist:
   x-swagger-router-controller: catalog_controller
   get:
     description: "Get browsing data for artists in the catalog. The sort order is predetermined: if one or more facets are passed then the order will be alphabetical ascending by artist name, if no facets are passed then the results will be in featured order."
@@ -172,7 +172,7 @@
           $ref: "#/definitions/ErrorResponse"
 
 
-/msl/v1/catalogedge/browse/song:
+/catalog-edge/browse/song:
   x-swagger-router-controller: catalog_controller
   get:
     description: "Get browsing data for songs in the catalog. The sort order is predetermined: if one or more facets are passed then the order will be alphabetical ascending by song name, if no facets are passed then the results will be in featured order."

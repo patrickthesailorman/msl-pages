@@ -1,4 +1,4 @@
-/msl/v1/playeredge/play/{songId}:
+/player-edge/play/{songId}:
     x-swagger-router-controller: player_controller
     get:
       description: Request to begin streaming a song. Result will be an mp3.
