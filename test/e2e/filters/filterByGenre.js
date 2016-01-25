@@ -7,7 +7,7 @@ describe('genre filter in home page', () => {
   it('checks genre name', () => {
     browser.driver.findElement(By.css('genre-filter li:nth-child(1) a')).click();
     const genreName = browser.driver.findElement(By.css('genre-filter li:nth-child(1) a')).getText();
-    expect(genreName).toBe('Rock');
+    expect(genreName).toBe('Bachata');
   });
 
   it('checks active genre name', () => {
