@@ -1,11 +1,13 @@
 describe('login modal', () => {
 
   beforeEach(() => {
-    browser.driver.get(`${ browser.baseUrl }/my-library`);
+    browser.driver.get(`${ browser.baseUrl }`);
+    browser.driver.sleep(600);
+    browser.driver.findElement(By.css('.star-rating.personal-rating button')).click();
     browser.driver.sleep(600);
   });
 
-  describe('When the form is empty', () => {
+  xdescribe('When the form is empty', () => {
     it('Should disable the sign in button', () => {
       const button = browser.driver.findElement(By.name('login'));
       const isDisabled = button.getAttribute('disabled');
@@ -21,7 +23,7 @@ describe('login modal', () => {
       browser.driver.findElement(by.name('password')).clear();
     });
 
-    describe('when the credentials are incorrect', () => {
+    xdescribe('when the credentials are incorrect', () => {
       beforeEach(() => {
         loginURL = browser.driver.getCurrentUrl();
         browser.driver.findElement(By.name('email')).sendKeys('fail@email.com');
@@ -40,13 +42,14 @@ describe('login modal', () => {
     });
 
     describe('when the credentials are correct', () => {
-      it('Correct email or password', () => {
-        browser.driver.findElement(by.name('email')).sendKeys('correct@email.com');
-        browser.driver.findElement(by.name('password')).sendKeys('12345678A?');
-        browser.driver.findElement(By.css('#login-modal button[type=submit]')).click();
+      it('Should redirect to home page', () => {
+        browser.driver.findElement(By.name('email')).sendKeys('correct@email.com');
+        browser.driver.findElement(By.name('password')).sendKeys('12345678A?');
+        browser.driver.sleep(600);
+        browser.driver.findElement(By.name('login')).click();
         browser.driver.sleep(600);
         loginURL = browser.driver.getCurrentUrl();
-        expect(loginURL).toBe(`${ browser.baseUrl }/my-library`);
+        expect(loginURL).toBe(`${ browser.baseUrl }/`);
       });
     });
   });

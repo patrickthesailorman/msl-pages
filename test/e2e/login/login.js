@@ -21,7 +21,17 @@ describe('login', () => {
       browser.driver.findElement(by.name('password')).clear();
     });
 
-    describe('when the credentials are incorrect', () => {
+    describe('when email is invalid', () => {
+      it('Login button should be disabled', () => {
+        browser.driver.findElement(By.name('email')).sendKeys('@email.com');
+        browser.driver.sleep(600);
+        const button = browser.driver.findElement(By.name('login'));
+        const isDisabled = button.getAttribute('disabled');
+        expect(isDisabled).toBe('true');
+      });
+    });
+
+    xdescribe('when the credentials are incorrect', () => {
       beforeEach(() => {
         loginURL = browser.driver.getCurrentUrl();
         browser.driver.findElement(By.name('email')).sendKeys('fail@email.com');
@@ -34,16 +44,17 @@ describe('login', () => {
       });
 
       it('should display the button disable', () => {
-        const button = browser.driver.findElement(By.css('form button'));
+        const button = browser.driver.findElement(By.name('login'));
         expect(button.getAttribute('disabled')).toBe('true');
       });
     });
 
     describe('when the credentials are correct', () => {
-      it('Correct email or password', () => {
-        browser.driver.findElement(by.name('email')).sendKeys('correct@email.com');
-        browser.driver.findElement(by.name('password')).sendKeys('12345678A?');
+      it('Should redirect to home page', () => {
+        browser.driver.findElement(By.name('email')).sendKeys('correct@email.com');
+        browser.driver.findElement(By.name('password')).sendKeys('12345678A?');
         browser.driver.findElement(By.css('form button')).click();
+        browser.driver.sleep(600);
         loginURL = browser.driver.getCurrentUrl();
         expect(loginURL).toBe(`${ browser.baseUrl }/`);
         browser.driver.sleep(600);
