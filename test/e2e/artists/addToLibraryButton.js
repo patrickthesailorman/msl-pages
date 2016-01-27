@@ -14,4 +14,41 @@ describe('add artists to library button', () => {
       });
     });
   });
+
+  describe('When authenticated', () => {
+    beforeAll(() => {
+      browser.driver.manage().deleteAllCookies();
+      browser.driver.get(`${ browser.baseUrl }/login`);
+      browser.driver.findElement(By.name('email')).sendKeys('correct@email.com');
+      browser.driver.findElement(By.name('password')).sendKeys('12345678A?');
+      browser.driver.sleep(600);
+      browser.driver.findElement(By.css('form button')).click();
+      browser.driver.sleep(600);
+    });
+
+    beforeEach(() => {
+      browser.driver.get(`${ browser.baseUrl }/?tab=artists`);
+      browser.driver.sleep(600);
+      const box = browser.driver.findElement(By.css('.media-box-inner-image'));
+      browser.driver.actions().mouseMove(box).perform();
+      browser.driver.sleep(600);
+    });
+
+    it('should enable the Add To Library button', () => {
+      const link = element(By.css('[data-pt-id=add-to-library]'));
+      expect(link.isPresent()).toBeTruthy();
+    });
+
+    it('should stay at the albums tab', () => {
+      browser.driver.findElement(By.css('[data-pt-id=add-to-library]')).click();
+      browser.driver.sleep(600);
+      const currentUrl = browser.driver.getCurrentUrl();
+      expect(currentUrl).toBe(`${ browser.baseUrl }/?tab=artists`);
+    });
+
+    afterAll(() => {
+      browser.driver.findElement(By.css('[data-pt-id=logout]')).click();
+      browser.driver.sleep(600);
+    });
+  });
 });

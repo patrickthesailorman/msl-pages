@@ -2,7 +2,7 @@
 import datastoreModule from 'modules/datastore/module';
 
 describe('recentSongsStore', () => {
-  const API_PATH = `:${process.env.ACCOUNT_PORT}/msl/v1/accountedge/users`;
+  const API_PATH = `:${process.env.ACCOUNT_PORT}/account-edge/users`;
   let recentSongsStore, request, entityMapper, SongListEntity;
 
   beforeEach(() => {

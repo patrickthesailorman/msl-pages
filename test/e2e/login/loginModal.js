@@ -51,6 +51,12 @@ describe('login modal', () => {
         loginURL = browser.driver.getCurrentUrl();
         expect(loginURL).toBe(`${ browser.baseUrl }/`);
       });
+
+      afterAll(() => {
+        browser.driver.findElement(By.css('[data-pt-id=logout]')).click();
+        browser.driver.manage().deleteAllCookies();
+        browser.driver.sleep(600);
+      });
     });
   });
 

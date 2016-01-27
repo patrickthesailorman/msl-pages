@@ -2,7 +2,7 @@ import datastoreModule from 'modules/datastore/module';
 
 describe('myLibraryStore', () => {
   const TIMESTAMP = 'Thu Feb 05 00:31:49 CST 2015';
-  const API_PATH = `:${process.env.ACCOUNT_PORT}/msl/v1/accountedge/users/mylibrary`;
+  const API_PATH = `:${process.env.ACCOUNT_PORT}/account-edge/users/mylibrary`;
 
   let myLibraryStore, request, entityMapper, MyLibraryEntity, StatusResponseEntity;
 
