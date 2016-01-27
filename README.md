@@ -1,5 +1,7 @@
 # Million Songs Library
 
+**This project was build using nodev0.12.2 and npm2.7.4. See [NVM](https://github.com/creationix/nvm).**
+
 ## Developers
 
 Project is based on [Webpack](http://webpack.github.io/) and [Angular](https://angularjs.org/).
@@ -11,19 +13,7 @@ compiler.
 ### Installation
 
 When you checkout the project for the first time, run `npm install`. This will install `npm`
-dependencies as well as trigger `bower install` for installing bower dependencies.
-
-### Testing
-
-Project is tested with `karma` with `jasmine` framework and `eslint` for reporting on patterns. You can run tests and
-pattern reporting by simply calling `npm run test`. Note that if `eslint` fails then tests will not be triggered.
-You can also use `npm run autotest` for automated test runs when some source files changes.
-
-#### Functional Testing
-
-Project is tested with `jasmine` using `protractor` framework. First, you need to start webdriver-manager
-by calling `npm run webdriver-start`. Then run `npm run dev -mock`. Finally run the tests by calling
-`npm run protractor`. The tests will run in the different browsers(Chrome, Firefox, Safari and Internet Explorer).
+dependencies as well as trigger `bower install` for installing bower dependencies. See build for further instructions.
 
 ### Build
 
@@ -31,10 +21,18 @@ Project is built by calling `npm run build`. This will create new source files a
 and will also create Styleguide of the project. Mount them on any server and you are ready to go, or alternatively
 use `npm run dev`.
 
+In order to run micro-service dependencies run the npm task `npm run build-server`. Optionally run `npm run build-and-serve` for
+building dependencies and running an instance of Jetty for each micro-service
+
 ### Dev Server
 
 Start dev server by calling `npm run dev`, this will automatically mount a server on `3000` localhost port.
 If any change is made during dev server run, source files will be automatically rebuilt.
+
+Add `msl.kenzanlabs.com` to your `/etc/hosts` file to map the localhost ip. This will include your localhost as a allowed
+origin.
+
+*See API & Server section to see about running the API server.*
 
 ### Prod Server
 
@@ -96,44 +94,62 @@ to use `npm` dependencies and use `bower` for dependencies that are not publishe
 Make sure that you use `"ngInject";` for angular injectable dependencies.
 Please read [ES6 support for ngAnnotate](https://github.com/olov/ng-annotate#es6-and-typescript-support).
 
-### Test Files
+### Testing
+
+Project is tested with `karma` with `jasmine` framework and `eslint` for reporting on patterns. You can run tests and
+pattern reporting by simply calling `npm run test`. Note that if `eslint` fails then tests will not be triggered.
+You can also use `npm run autotest` for automated test runs when some source files changes.
+
+#### Functional Testing
+
+Project is tested with `jasmine` using `protractor` framework. First you need to install some global dependencies
+(may need to use sudo).
+- `npm install -g protractor`
+
+- `npm install -g selenium-webdriver`
+
+Now run the mock server `npm run serve-mock` and the site consuming that server `npm run dev -mock`.
+Then `webdriver-manager start` (When running it for the first time, you may need to update the manager `webdriver-manager update --standalone`).
+Finally run the tests by calling `protractor protractor.conf.js`. The tests will run in the different browsers(Chrome, Firefox, Safari and Internet Explorer).
+
+#### Test Files
 
 Test files are stored in `./test/specs` directory. When karma runner starts, it includes files by
 `./test/specs/**/*.test.js` pattern only. Other files like source files that need to be tested have to be
 imported in the test files.
 
-### API
+## API & Server
 
 In order to get API host add `process.env.API_HOST`. This will return host if it is defined at build time.
 
 ### Swagger
 
-Swagger config file is placed in `./swagger/api/swagger/swagger.yaml`
+Swagger specification is separated into their corresponding micro-service specification for generating API REST code for each microservice
+by using swagger-codegen tools.
+In order to run an overall swagger spec the file is generated through runtime using the npm task `parse-swagger-src`. All process is part of the
+npm tasks `build-server` and `serve-and-build`
+
 
 #### Swagger Mock Server
 
 Start mock server by running `npm run serve-mock`. **Note** that if you want that your dev server would
 use swagger mock server you need to start it with `--mock` argument, for e.g. `npm run dev --mock`. Mock
-server runs in port 10010
+server runs in localhost port 10010
 
 #### Swagger Docs Editor
 
 Start docs editor by running `npm run docs`.
 
-#### Swagger CodeGen
-
-Run `../common/./gen_server_stubs.sh [/output_directory]` to use the swagger-codegen tools to generate stubs from the swagger specification. If output not specified script will generate stubs into `../server` (https://github.com/swagger-api/swagger-codegen/blob/master/README.md)
-
-
 #### Swagger UI
 
-Runs on port 5000/docs alongside swagger mock server when running it `npm run serve-mock`.
+Runs on localhost port 10010/docs alongside swagger mock server when running it `npm run serve-mock`.
 
 ### Jersey API
 
-To run the jersey api from the client directory use the npm task `start-server` or from the server directory `../server mvn -f build.xml clean generate-sources jetty:run`
+To run the jersey api from the client directory use the npm task `serve-all` to a Jetty server instance for all microservices.
+`build-and-serve` npm task builds server dependencies before running the Jetty instances.
 
 #### Coverage report on jersey
 
-With the server running and from the server directory, run `mvn -f build.xml site` to generate the coverage reporter for the jersey API. Optionally from
-the client directory run the npm task `server-coverage`. This will generate a html file under `/server/target/site/index.html`
+With the server running and from the server directory, run `mvn -f build.xml site` to generate the coverage reporter for the jersey API.
+
