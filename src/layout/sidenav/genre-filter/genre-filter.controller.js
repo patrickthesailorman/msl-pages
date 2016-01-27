@@ -1,6 +1,6 @@
 import {GENRE_FACET_ID} from '../../../constants.js';
 /**
- * Genre filter controller
+ * Genre filter controller.
  */
 export default class genreFilterCtrl {
   /*@ngInject*/
@@ -27,7 +27,7 @@ export default class genreFilterCtrl {
   }
 
   /**
-   * Determines if the given genre is the active one
+   * Determines if the given genre is the active one.
    * @param {string} genreId
    * @return {Boolean}
    */
@@ -36,7 +36,7 @@ export default class genreFilterCtrl {
   }
 
   /**
-   * Applies genre filter on change
+   * Applies genre filter on change.
    * @param {object} genre
    */
   applyFilterByGenre(genre) {
@@ -47,7 +47,7 @@ export default class genreFilterCtrl {
   }
 
   /**
-   * Gets all genres
+   * Gets all genres.
    * @private
    */
   async _getGenreFacets() {

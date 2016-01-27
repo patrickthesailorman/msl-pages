@@ -1,8 +1,8 @@
-//Dependencies
+// Dependencies
 import angular from 'angular';
 import router from 'angular-ui-router';
 
-//Modules
+// Modules
 import dataStore from 'modules/datastore/module';
 import authentication from 'modules/authentication/module';
 

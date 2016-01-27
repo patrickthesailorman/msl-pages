@@ -1,5 +1,5 @@
 /**
- * Song box controller
+ * Song box controller.
  */
 export default class songBoxCtrl {
   /*@ngInject*/
@@ -15,6 +15,10 @@ export default class songBoxCtrl {
     this.authentication = authentication;
   }
 
+  /**
+  * Checks if state is 'msl.library'.
+  * @returns {boolean}
+  */
   isLibraryPage () {
     return this.$state.is('msl.library');
   }

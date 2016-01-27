@@ -1,5 +1,5 @@
 /**
- * session token storage service
+ * Session token storage service.
  * @name authCookie
  * @param {$cookies} $cookies
  * @returns {*}
@@ -11,7 +11,7 @@ export default function authCookie ($cookies) {
 
   return {
     /**
-     * save session token
+     * Save session token.
      * @name authCookie#set
      * @param {string} token
      * @return {authCookie}
@@ -21,7 +21,7 @@ export default function authCookie ($cookies) {
       return this;
     },
     /**
-     * get current session token
+     * Get current session token.
      * @name authCookie#get
      * @return {*}
      */
@@ -29,7 +29,7 @@ export default function authCookie ($cookies) {
       return $cookies.get(STORAGE_NAMESPACE);
     },
     /**
-     * check if session token is set
+     * Check if session token is set.
      * @name authCookie#has
      * @return {boolean}
      */
@@ -37,7 +37,7 @@ export default function authCookie ($cookies) {
       return !!$cookies.get(STORAGE_NAMESPACE);
     },
     /**
-     * destroy session token
+     * Destroy session token.
      * @name authCookie#destroy
      * @return {authCookie}
      */

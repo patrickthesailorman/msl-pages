@@ -1,5 +1,5 @@
 /**
- * Angular config for Album page
+ * Angular config for Album page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function albumPageRoute($stateProvider) {

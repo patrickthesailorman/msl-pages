@@ -1,5 +1,5 @@
 /**
- * play button directive controller
+ * Play button directive controller.
  * @param {$rootScope.Scope} $scope
  * @param {player} player
  */
@@ -9,8 +9,8 @@ function playButtonController ($scope, player) {
   this.currentlyPlayingSong = false;
 
   /**
-   * listener for player state change
-   * this is not angular action so we need to digest scope manually
+   * Listener for player state change.
+   * This is not angular action so we need to digest scope manually.
    */
   let onPlayerStateChange = () => {
     const songEntity = player.getSongEntity();
@@ -24,7 +24,7 @@ function playButtonController ($scope, player) {
   };
 
   /**
-   * play button user action
+   * Play button user action.
    */
   this.play = function () {
     if(this.currentlyPlayingSong) {
@@ -35,9 +35,9 @@ function playButtonController ($scope, player) {
     }
   };
 
-  // add player state change listener
+  // Add player state change listener.
   player.addStateChangeListener(onPlayerStateChange);
-  // when scope destroys then remove player state change listener
+  // When scope destroys then remove player state change listener
   $scope.$on('$destroy', () => player.removeStateChangeListener(onPlayerStateChange));
 }
 

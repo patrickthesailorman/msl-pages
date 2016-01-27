@@ -1,7 +1,7 @@
-//Styles
+// Styles
 import './stylesheets/search.scss';
 
-//Dependencies
+// Dependencies
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 

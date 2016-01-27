@@ -1,6 +1,5 @@
 /**
- * Album page controller
- * @author anram88
+ * Album page controller.
  */
 export default class albumCtrl {
   /*@ngInject*/
@@ -25,7 +24,7 @@ export default class albumCtrl {
       this.albumId = $stateParams.albumId;
       this.authentication = authentication;
 
-      //Initialization
+      // Initialization
       albumModel.getAlbum(this.albumId);
       $scope.$watch(() => albumModel.album,
         () => {

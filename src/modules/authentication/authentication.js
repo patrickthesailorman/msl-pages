@@ -22,8 +22,8 @@ export default function authentication (
 
   return {
     /**
-     * authenticate user and create user session
-     * and emit state change event
+     * Authenticate user and create user session
+     * and emit state change event.
      * @name authentication#authenticate
      * @param {string} login
      * @param {string} password
@@ -31,15 +31,15 @@ export default function authentication (
     async authenticate(login, password) {
       assert.ok(!_.isEmpty(login), LOGIN_EMPTY);
       assert.ok(!_.isEmpty(password), PASSWORD_EMPTY);
-      // make api request
+      // Make api request
       const response = await loginStore.push(login, password);
       if(response.authenticated) {
         authCookie.set(response.authenticated);
       }
     },
     /**
-     * destroy user session
-     * and emit state change event
+     * Destroy user session
+     * and emit state change event.
      * @name authentication#destory
      */
     async destroy() {
@@ -47,7 +47,7 @@ export default function authentication (
       await logoutStore.push();
     },
     /**
-     * returns if user is authorized
+     * Returns if user is authorized.
      * @name authentication#isAuthenticated
      * @return {boolean}
      */

@@ -1,11 +1,11 @@
-//View
+// View
 import './stylesheets/song.scss';
 
-//Dependencies
+// Dependencies
 import angular from 'angular';
 import router from 'angular-ui-router';
 
-//Modules
+// Modules
 import dataStore from 'modules/datastore/module';
 import rating from 'modules/star-rating/module';
 import authentication from 'modules/authentication/module';

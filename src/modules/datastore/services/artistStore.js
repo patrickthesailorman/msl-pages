@@ -2,7 +2,7 @@ import {PAGE_SIZE} from '../../../constants.js';
 import {CATALOG_EDGE} from '../../../constants.js';
 
 /**
- * artist store
+ * @name artistStore
  * @param {request} request
  * @param {entityMapper} entityMapper
  * @param {ArtistInfoEntity} ArtistInfoEntity
@@ -21,7 +21,7 @@ export default function artistStore(request,
   const API_REQUEST_PATH = CATALOG_EDGE;
   return {
     /**
-     * fetch artist from catalogue endpoint
+     * Fetch artist from catalogue endpoint.
      * @name artistStore#fetch
      * @param {string} artistId
      * @return {ArtistInfoEntity}
@@ -37,7 +37,7 @@ export default function artistStore(request,
     },
 
     /**
-     * fetch all artists from catalogue endpoint
+     * Fetch all artists from catalogue endpoint.
      * @name artistStore#fetchAll
      * @param {string} facets - comma separated list of facetIds
      * @return {ArtistListEntity}

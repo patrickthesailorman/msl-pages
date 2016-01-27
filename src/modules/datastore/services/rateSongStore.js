@@ -1,7 +1,7 @@
 import {RATINGS_EDGE} from '../../../constants.js';
 
 /**
- * rate song store service
+ * Rate song store service.
  * @name rateSongStore
  * @param {request} request
  * @param {entityMapper} entityMapper
@@ -14,7 +14,7 @@ function rateSongStore (request, entityMapper, StatusResponseEntity) {
   const API_REQUEST_PATH = `${RATINGS_EDGE}ratesong/`;
   return {
     /**
-     * make rate song request
+     * Make rate song request.
      * @name rateSongStore#push
      * @param {string} songId
      * @param {number} rating

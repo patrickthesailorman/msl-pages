@@ -1,7 +1,7 @@
 import genreFilterCtrl from './genre-filter.controller.js';
 
 /**
- * Genre filter directive
+ * Genre filter directive.
  */
 export default class GenreFilter {
   /*@ngInject*/

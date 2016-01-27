@@ -6,7 +6,7 @@ export const GENRE_FACET_ID = 'A1';
 export const RATING_FACET_ID = 'A2';
 export const PAGE_SIZE = 12;
 
-/*RESOURCES*/
+// RESOURCES
 export const LOGIN_EDGE = `:${process.env.LOGIN_PORT}/login-edge/`;
 export const ACCOUNT_EDGE = `:${process.env.ACCOUNT_PORT}/account-edge/`;
 export const CATALOG_EDGE = `:${process.env.CATALOG_PORT}/catalog-edge/`;

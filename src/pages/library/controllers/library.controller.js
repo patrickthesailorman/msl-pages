@@ -1,5 +1,5 @@
 /**
- * Library controller
+ * Library controller.
  */
 export default class libraryCtrl {
   /*@ngInject*/
@@ -25,9 +25,9 @@ export default class libraryCtrl {
   }
 
   /**
-   * Initializes songs albums and artists library data
+   * Initializes songs albums and artists library data.
    * If no data is found (because of error on request or empty data)
-   * error message is returned
+   * error message is returned.
    * @private
    */
   async _getMyLibrary() {

@@ -1,7 +1,6 @@
 /**
- * Album box directive
- * @author anram88
- * @returns {{restrict: string, scope: {album: string}, template: *, controller: string, controllerAs: string}}
+ * Album box directive.
+ * @returns {restrict: string, scope: {album: string}, template: *, controller: string, controllerAs: string}
  */
 export default function albumBox() {
 
@@ -17,4 +16,3 @@ export default function albumBox() {
     controllerAs: 'vm',
   };
 }
-

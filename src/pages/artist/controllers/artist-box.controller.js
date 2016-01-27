@@ -1,5 +1,5 @@
 /**
- * Artist box controller
+ * Artist box controller.
  */
 export default class artistBoxCtrl {
   /*@ngInject*/
@@ -15,6 +15,10 @@ export default class artistBoxCtrl {
     this.authentication = authentication;
   }
 
+  /**
+  * Checks if state is 'msl.library'.
+  * @returns {*}
+  */
   isLibraryPage () {
     return this.$state.is('msl.library');
   }

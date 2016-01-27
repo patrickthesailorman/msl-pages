@@ -1,7 +1,7 @@
 import {ACCOUNT_EDGE} from '../../../constants.js';
 
 /**
- * recent songs store service
+ * Recent songs store service.
  * @name recentSongsStore
  * @param {request} request
  * @param {entityMapper} entityMapper
@@ -14,7 +14,7 @@ function recentSongsStore (request, entityMapper, SongListEntity) {
   const API_REQUEST_PATH = `${ACCOUNT_EDGE}users/recentsongs`;
   return {
     /**
-     * fetch songs list from account recent songs endpoint
+     * Fetch songs list from account recent songs endpoint.
      * @name recentSongsStore#fetch
      * @return {SongListEntity}
      */

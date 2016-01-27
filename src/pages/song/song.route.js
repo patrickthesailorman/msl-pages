@@ -1,5 +1,5 @@
 /**
- * Angular config for Song page
+ * Angular config for Song page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function songPageRoute($stateProvider) {

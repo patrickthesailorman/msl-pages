@@ -1,7 +1,7 @@
 import {ANONYMOUS_REDIRECT_TO, ROLE_ANONYMOUS} from 'constants';
 
 /**
- * angular config for login page
+ * Angular config for login page.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function loginPageRoute($stateProvider) {

@@ -1,6 +1,6 @@
 /**
- * navbar search controller
- * it should only process input search field
+ * Navbar search controller.
+ * It should only process input search field.
  * @param {ui.router.state.$state} $state
  */
 export default class navbarSearchCtrl {
@@ -14,4 +14,3 @@ export default class navbarSearchCtrl {
     this.$state.go('search', { query: this.q });
   }
 }
-

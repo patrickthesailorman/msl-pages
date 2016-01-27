@@ -1,10 +1,10 @@
-//Styles
+// Styles
 import '../styles/layout.scss';
-//Dependencies
+// Dependencies
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-//Modules
+// Modules
 import authentication from 'modules/authentication/module';
 import player from 'modules/player/module';
 

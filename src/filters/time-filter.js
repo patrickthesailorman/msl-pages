@@ -1,5 +1,5 @@
 /**
- * Time filter for display purposes
+ * Time filter for display purposes.
  * @param {string} input
  * @param {string} format 'HH:MM:SS'
  * @returns {Function}

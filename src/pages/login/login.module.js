@@ -1,9 +1,9 @@
-//View
+// View
 import './stylesheets/login.scss';
-//Dependencies
+// Dependencies
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-//Module
+// Module
 import authentication from 'modules/authentication/module';
 
 import loginRoute from './login.route.js';

@@ -1,5 +1,5 @@
 /**
- * angular config for error module
+ * Angular config for error module.
  * @param {ui.router.state.$stateProvider} $stateProvider
  */
 export default function errorPageRoute($stateProvider) {

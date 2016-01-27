@@ -3,7 +3,6 @@ import {ACCOUNT_EDGE} from '../../../constants.js';
 import StatusResponseEntity from '../entities/StatusResponseEntity';
 
 /**
- * my library store service
  * @name myLibraryStore
  * @param {request} request
  * @param {entityMapper} entityMapper
@@ -22,7 +21,7 @@ function myLibraryStore(
   const API_REQUEST_PATH = `${ACCOUNT_EDGE}users/mylibrary`;
   return {
     /**
-     * fetch my library from account endpoint
+     * Fetch my library from account endpoint.
      * @name myLibraryStore#fetch
      * @return {MyLibraryEntity}
      */
@@ -32,7 +31,7 @@ function myLibraryStore(
     },
 
     /**
-     * Add song to my library
+     * Add song to my library.
      * @param {string} songId
      * @return {StatusResponseEntity}
      */
@@ -43,7 +42,7 @@ function myLibraryStore(
     },
 
     /**
-     * Add album to my library
+     * Add album to my library.
      * @param {string} albumId
      * @return {StatusResponseEntity}
      */
@@ -54,7 +53,7 @@ function myLibraryStore(
     },
 
     /**
-     * Add artist to my library
+     * Add artist to my library.
      * @param {string} artistId
      * @return {StatusResponseEntity}
      */
@@ -65,7 +64,7 @@ function myLibraryStore(
     },
 
     /**
-     * Remove song to my library
+     * Remove song to my library.
      * @param {string} songId
      * @param {string} timestamp
      * @return {StatusResponseEntity}
@@ -77,7 +76,7 @@ function myLibraryStore(
     },
 
     /**
-     * Remove album to my library
+     * Remove album to my library.
      * @param {string} albumId
      * @param {string} timestamp
      * @return {StatusResponseEntity}
@@ -89,7 +88,7 @@ function myLibraryStore(
     },
 
     /**
-     * Remove artist to my library
+     * Remove artist to my library.
      * @param {string} artistId
      * @param {string} timestamp
      * @return {StatusResponseEntity}

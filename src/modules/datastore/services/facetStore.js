@@ -1,7 +1,7 @@
 import {CATALOG_EDGE} from '../../../constants.js';
 
 /**
- * Facet store
+ * @name facetStore
  * @param {request} request
  * @param {entityMapper} entityMapper
  * @param {FacetListEntity} FacetListEntity
@@ -14,11 +14,11 @@ export default function facetStore(request, entityMapper, FacetListEntity) {
 
   return {
     /**
-     * fetch facets from catalogedge's facet endpoint
-     * @param {string} facetId
+     * Fetch facets from catalogedge's facet endpoint.
+     * @param {string} opt_facetId
      */
-    async fetch(facetId = '~') {
-      const response = await request.get(`${ API_REQUEST_PATH }${ facetId }`);
+    async fetch(opt_facetId = '~') {
+      const response = await request.get(`${ API_REQUEST_PATH }${ opt_facetId }`);
       return entityMapper(response.data, FacetListEntity);
     },
   };

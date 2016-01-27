@@ -1,7 +1,7 @@
 import _ from 'lodash';
 /**
  * Filter Model
- * Filters the songs, artists and albums by genre and rating
+ * Filters the songs, artists and albums by genre and rating.
  */
 export default class filterModel {
   /*@ngInject*/
@@ -28,7 +28,7 @@ export default class filterModel {
   }
 
   /**
-   * Sets the selected genre
+   * Sets the selected genre.
    * @param {object} genre
    */
   setSelectedGenre(genre) {
@@ -44,7 +44,7 @@ export default class filterModel {
   }
 
   /**
-   * Sets the selected rating
+   * Sets the selected rating.
    * @param {string} ratingId
    */
   setSelectedRating(ratingId) {
@@ -54,7 +54,7 @@ export default class filterModel {
   }
 
   /**
-   * Applies the filters on songs albums and artists
+   * Applies the filters on songs albums and artists.
    * @param {Object} listener
    */
   filter(listener) {
@@ -66,7 +66,7 @@ export default class filterModel {
   }
 
   /**
-   * Gets the current location search params and applies the filters
+   * Gets the current location search params and applies the filters.
    * @param {Object} listener
    */
   applyCurrentFilters(listener) {
@@ -83,7 +83,7 @@ export default class filterModel {
   }
 
   /**
-   * Applies the filters on the songs catalog
+   * Applies the filters on the songs catalog.
    * @private
    */
   _filterSongs() {
@@ -95,7 +95,7 @@ export default class filterModel {
   }
 
   /**
-   * Applies the filters on the albums catalog
+   * Applies the filters on the albums catalog.
    * @private
    */
   _filterAlbums() {
@@ -107,7 +107,7 @@ export default class filterModel {
   }
 
   /**
-   * Applies the filters on the artists catalog
+   * Applies the filters on the artists catalog.
    * @private
    */
   _filterArtists() {
@@ -119,7 +119,7 @@ export default class filterModel {
   }
 
   /**
-   * Retrieves the facets in string format
+   * Retrieves the facets in string format.
    * @returns {string}
    * @private
    */

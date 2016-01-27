@@ -1,5 +1,5 @@
 /**
- * Album box controller
+ * Album box controller.
  */
 export default class albumBoxCtrl {
   /*@ngInject*/
@@ -15,6 +15,10 @@ export default class albumBoxCtrl {
     this.authentication = authentication;
   }
 
+  /**
+  * Checks if state is library.
+  * @returns {boolean}
+  */
   isLibraryPage () {
     return this.$state.is('msl.library');
   }

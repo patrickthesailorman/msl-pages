@@ -2,7 +2,7 @@ import {PAGE_SIZE} from '../../../constants.js';
 import {CATALOG_EDGE} from '../../../constants.js';
 
 /**
- * album store
+ * Album store.
  * @param {request} request
  * @param {entityMapper} entityMapper
  * @param {AlbumInfoEntity} AlbumInfoEntity
@@ -16,7 +16,7 @@ function albumStore(request, entityMapper, AlbumInfoEntity, AlbumListEntity, $lo
   const API_REQUEST_PATH = CATALOG_EDGE;
   return {
     /**
-     * fetch album from catalogue endpoint
+     * Fetch album from catalogue endpoint.
      * @name albumStore#fetch
      * @param {string} albumId
      * @return {AlbumInfoEntity}
@@ -31,7 +31,7 @@ function albumStore(request, entityMapper, AlbumInfoEntity, AlbumListEntity, $lo
     },
 
     /**
-     * fetch all albums from catalogue endpoint
+     * Fetch all albums from catalogue endpoint.
      * @name albumStore#fetchAll
      * @param {string} facets - comma separated list of facetIds
      * @return {AlbumListEntity}

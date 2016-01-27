@@ -1,8 +1,8 @@
-//Dependencies
+// Dependencies
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-//Modules
+// Modules
 import dataStore from 'modules/datastore/module';
 import songsTable from 'modules/songs-table/module';
 
