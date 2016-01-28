@@ -1,9 +1,9 @@
 /* global describe, it, expect, beforeEach, pending */
-describe('add songs to library button', () => {
+describe('add artists to library button', () => {
 
   describe('When not authenticated', () => {
     beforeEach(() => {
-      browser.driver.get(`${ browser.baseUrl }/?tab=songs`);
+      browser.driver.get(`${ browser.baseUrl }/?tab=artists`);
       browser.driver.sleep(600);
     });
 
