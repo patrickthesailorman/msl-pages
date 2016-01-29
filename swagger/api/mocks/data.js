@@ -15,7 +15,7 @@ module.exports = {
       year: 1919,
       song_hotttnesss: 100,
       genre: 'Classic',
-      in_my_library: true,
+      in_my_library: false,
     },
     {
       song_id: '2',
@@ -31,7 +31,7 @@ module.exports = {
       year: 1999,
       song_hotttnesss: 1,
       genre: 'Rock',
-      in_my_library: false,
+      in_my_library: true,
     },
     {
       song_id: '3',
@@ -109,7 +109,7 @@ module.exports = {
       songs_list: ['1'],
       similar_artists_list: ['2', '3'],
       genre: 'Jazz',
-      in_my_library: true,
+      in_my_library: false,
     },
     {
       artist_id: '2',
@@ -120,7 +120,7 @@ module.exports = {
       songs_list: ['2'],
       similar_artists_list: ['1', '3'],
       genre: 'Metal',
-      in_my_library: false,
+      in_my_library: true,
     },
     {
       artist_id: '3',
@@ -178,7 +178,7 @@ module.exports = {
       artist_name: 'La 12',
       genre: 'Jazz',
       songs_list: ['1','2'],
-      in_my_library: true,
+      in_my_library: false,
     },
     {
       album_id: '2',
@@ -190,7 +190,7 @@ module.exports = {
       artist_name: 'Mercyful Fate',
       genre: 'Rock',
       songs_list: ['3','4'],
-      in_my_library: false,
+      in_my_library: true,
     },
     {
       album_id: '3',

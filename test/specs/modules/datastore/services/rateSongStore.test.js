@@ -3,7 +3,7 @@ import datastoreModule from 'modules/datastore/module';
 describe('rateSongStore', () => {
   const SONG_ID = '2';
   const RATING = '4';
-  const API_PATH = `:${process.env.RATINGS_PORT}/msl/v1/ratingsedge/ratesong`;
+  const API_PATH = `:${process.env.RATINGS_PORT}/ratings-edge/ratesong`;
 
   let rateSongStore, request, entityMapper, StatusResponseEntity;
 

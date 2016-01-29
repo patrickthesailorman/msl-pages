@@ -3,7 +3,7 @@ import {PAGE_SIZE} from 'constants.js';
 import datastoreModule from 'modules/datastore/module';
 
 describe('artistStore', () => {
-  const API_PATH = `:${process.env.CATALOG_PORT}/msl/v1/catalogedge`;
+  const API_PATH = `:${process.env.CATALOG_PORT}/catalog-edge`;
   const error = new Error('an error');
 
   let artistStore, entityMapper, request, ArtistInfoEntity, ArtistListEntity, $log;

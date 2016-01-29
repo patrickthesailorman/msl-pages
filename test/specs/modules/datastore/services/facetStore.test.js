@@ -2,7 +2,7 @@
 import datastoreModule from 'modules/datastore/module';
 
 describe('facetStore', () => {
-  const API_PATH = `:${process.env.CATALOG_PORT}/msl/v1/catalogedge/facet`;
+  const API_PATH = `:${process.env.CATALOG_PORT}/catalog-edge/facet`;
 
   let facetStore, request, entityMapper, FacetListEntity;
 

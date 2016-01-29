@@ -4,7 +4,7 @@ import datastoreModule from 'modules/datastore/module';
 describe('loginStore', () => {
   const EMAIL = 'a@a.com';
   const PASSWORD = 'password';
-  const API_PATH = `:${process.env.LOGIN_PORT}/msl/v1/loginedge`;
+  const API_PATH = `:${process.env.LOGIN_PORT}/login-edge`;
   const params = { email: EMAIL, password: PASSWORD };
 
   let loginStore, request, entityMapper, LoginSuccessResponseEntity;
