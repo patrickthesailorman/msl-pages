@@ -130,6 +130,8 @@
         type: integer
       personal_rating:
         type: integer
+      image_link:
+        type: string
       song_hotttnesss:
         description: The Echo Nest hotttnesss score
         type: number

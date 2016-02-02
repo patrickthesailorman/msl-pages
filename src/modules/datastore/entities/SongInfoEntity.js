@@ -14,6 +14,7 @@
  * @property {Number} danceability
  * @property {Number} averageRating
  * @property {Number} personalRating
+ * @property {String} imageLink
  * @property {Number} songHotttnesss
  * @property {Number} year
  * @property {Boolean} inMyLibrary
@@ -34,6 +35,7 @@ class SongInfoEntity {
     this.danceability = Number;
     this.averageRating = Number;
     this.personalRating = Number;
+    this.imageLink = String;
     this.songHotttnesss = Number;
     this.year = Number;
     this.inMyLibrary = Boolean;
