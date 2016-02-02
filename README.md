@@ -10,6 +10,19 @@ Project is based on ES6 syntax. It is converted to ES5 by using [BabelJS](https:
 this means that we can use extra features like `await` and `async`. For stylesheets we use [Sass](http://sass-lang.com/)
 compiler.
 
+
+### Setup
+
+Run the setup.sh script under the `/common` directory.
+    1. Set permissions to execute: `chmod +x setup.sh`
+    2. Run script: `./setup.sh {path-to-cassandra-folder}`
+
+Example: 
+`./setup.sh /Applications/dsc-cassandra-2.2.3`
+
+This will setup client, server and global dependencies all together. Or optionally go through the Installation and build sections
+of this document.
+
 ### Installation
 
 When you checkout the project for the first time, run `npm install`. This will install `npm`
