@@ -17,7 +17,7 @@ Run the setup.sh script under the `/common` directory.
     1. Set permissions to execute: `chmod +x setup.sh`
     2. Run script: `./setup.sh {path-to-cassandra-folder}`
 
-Example: 
+Example:
 `./setup.sh /Applications/dsc-cassandra-2.2.3`
 
 This will setup client, server and global dependencies all together. Or optionally go through the Installation and build sections
@@ -44,6 +44,8 @@ If any change is made during dev server run, source files will be automatically 
 
 Add `msl.kenzanlabs.com` to your `/etc/hosts` file to map the localhost ip. This will include your localhost as a allowed
 origin.
+
+Install [asciidoctor](http://asciidoctor.org/) before running dev task:
 
 *See API & Server section to see about running the API server.*
 

@@ -75,3 +75,14 @@ md-card {
   font-weight: bold;
   font-size: smaller;
 }
+
+footer a{
+  color: #2196F3;
+  font-style: italic;
+  font-size: small;
+  text-decoration: none;
+  padding-right: 1em;
+  &:hover{
+    color: #FF9800;
+  }
+}
