@@ -7,6 +7,7 @@ import SongInfoEntity from './SongInfoEntity';
 class SongListEntity {
   constructor() {
     this.genre = String;
+    this.pagingState = Object;
     this.songs = [SongInfoEntity];
   }
 }

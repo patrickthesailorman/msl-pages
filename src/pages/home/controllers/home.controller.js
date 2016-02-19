@@ -32,6 +32,9 @@ export default class homeCtrl {
     this.$location = $location;
     this.filterModel = filterModel;
 
+    // Defaults to songs to avoid extra validations
+    this.$location.search('tab', 'songs');
+
     this._getCurrentTab();
     filterModel.applyCurrentFilters(this);
 
@@ -80,6 +83,50 @@ export default class homeCtrl {
     this.artistModel.artists = artists;
     this.$scope.$evalAsync();
     this.isProcessing = false;
+  }
+
+  /**
+   * Based on the current tab, makes call to the model to get a new page.
+   */
+  loadNextPage() {
+    switch(this.$location.search().tab) {
+      case 'songs': this._loadSongsPage(); break;
+      case 'albums': this._loadAlbumsPage(); break;
+      case 'artists': this._loadArtistsPage(); break;
+    }
+  }
+
+  /**
+   * Asks the songs's model if there's an available page to retrieve,
+   * if yes, makes the call.
+   * @private
+   */
+  _loadSongsPage() {
+    if(this.songModel.hasNextPage) {
+      this.songModel.getSongsByPage();
+    }
+  }
+
+  /**
+   * Asks the album's model if there's an available page to retrieve,
+   * if yes, makes the call.
+   * @private
+   */
+  _loadAlbumsPage() {
+    if(this.albumModel.hasNextPage) {
+      this.albumModel.getAlbumsByPage();
+    }
+  }
+
+  /**
+   * Asks the artist's model if there's an available page to retrieve,
+   * if yes, makes the call.
+   * @private
+   */
+  _loadArtistsPage() {
+    if(this.artistModel.hasNextPage) {
+      this.artistModel.getArtistsByPage();
+    }
   }
 
   /**

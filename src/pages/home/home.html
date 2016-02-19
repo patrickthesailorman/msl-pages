@@ -1,5 +1,5 @@
 
-  <div layout="row" layout-sm="column">
+  <div layout="row" layout-sm="column" scroll-listener on-bottom="vm.loadNextPage()">
     <div flex="25" flex-sm="100" class="msl-sidebar">
         <genre-filter listener='vm'></genre-filter>
         <rating-filter listener='vm'></rating-filter>

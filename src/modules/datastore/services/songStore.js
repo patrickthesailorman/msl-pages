@@ -51,5 +51,21 @@ export default function songStore(request,
         $log.error(error);
       }
     },
+
+    /**
+     * Fetch songs by their page UUID from catalogue endpoint.
+     * @name songStore#fetchByPage
+     * @param {string} pagingState - the page UUID to be retrieved from the server
+     * @return {SongListEntity}
+     */
+    async fetchByPage(pagingState) {
+      try {
+        const params = { params: { items: PAGE_SIZE, pagingState: pagingState } };
+        const response = await request.get(`${ API_REQUEST_PATH }browse/song`, params);
+        return entityMapper(response.data, SongListEntity);
+      } catch(error) {
+        $log.error(error);
+      }
+    },
   };
 }

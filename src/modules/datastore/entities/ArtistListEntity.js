@@ -5,6 +5,7 @@ import ArtistInfoEntity from './ArtistInfoEntity';
  */
 class ArtistListEntity {
   constructor() {
+    this.pagingState = Object;
     this.artists = [ArtistInfoEntity];
   }
 }
