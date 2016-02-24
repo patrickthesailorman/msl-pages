@@ -45,6 +45,22 @@ function albumStore(request, entityMapper, AlbumInfoEntity, AlbumListEntity, $lo
         $log.error(error);
       }
     },
+
+    /**
+     * Fetch albums by their page UUID from catalogue endpoint.
+     * @name albumStore#fetchByPage
+     * @param {string} pagingState - the page UUID to be retrieved from the server
+     * @return {AlbumListEntity}
+     */
+    async fetchByPage(pagingState) {
+      try {
+        const params = { params: { items: PAGE_SIZE, pagingState: pagingState } };
+        const response = await request.get(`${ API_REQUEST_PATH }browse/album`, params);
+        return entityMapper(response.data, AlbumListEntity);
+      } catch(error) {
+        $log.error(error);
+      }
+    },
   };
 }
 

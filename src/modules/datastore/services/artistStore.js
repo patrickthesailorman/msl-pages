@@ -51,5 +51,21 @@ export default function artistStore(request,
         $log.error(error);
       }
     },
+
+    /**
+     * Fetch artists by their page UUID from catalogue endpoint.
+     * @name artistStore#fetchByPage
+     * @param {string} pagingState - the page UUID to be retrieved from the server
+     * @return {ArtistListEntity}
+     */
+    async fetchByPage(pagingState) {
+      try {
+        const params = { params: { items: PAGE_SIZE, pagingState: pagingState } };
+        const response = await request.get(`${ API_REQUEST_PATH }browse/artist`, params);
+        return entityMapper(response.data, ArtistListEntity);
+      } catch(error) {
+        $log.error(error);
+      }
+    },
   };
 }

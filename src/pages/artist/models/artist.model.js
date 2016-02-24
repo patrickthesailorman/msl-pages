@@ -18,8 +18,12 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
     getSimilarArtists,
     getArtistsById,
     filterArtists,
+    getArtistsByPage: getArtistsByPage,
     artists: null,
     isProcessing: false,
+    isFetchingNewPage: false,
+    hasNextPage: false,
+    nextPage: null,
   };
   return _model;
 
@@ -59,6 +63,24 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
   }
 
   /**
+   * Gets artists by page.
+   */
+  async function getArtistsByPage() {
+    _model.isFetchingNewPage = true;
+    try {
+      const artistList = await artistStore.fetchByPage(_model.nextPage);
+      _model.artists = _model.artists.concat(artistList.artists);
+      _model.hasNextPage = angular.isDefined(artistList.pagingState);
+      _setNextPage(_model.hasNextPage, artistList.pagingState);
+      $rootScope.$new().$evalAsync();
+    }
+    catch(error) {
+      $log.warn(error);
+    }
+    _model.isFetchingNewPage = false;
+  }
+
+  /**
    * Gets a list of albums.
    * @param {string[]} albumIds
    * @param {function} opt_done
@@ -67,7 +89,7 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
     _model.isProcessing = true;
     try {
       const albumsPromises = albumIds.map(async (albumId) => await albumStore.fetch(albumId));
-      const albums = await* albumsPromises;
+      const albums = await albumsPromises;
       if(opt_done) {
         opt_done(albums);
       }
@@ -107,7 +129,7 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
     _model.isProcessing = true;
     try {
       const artistsPromises = artistIds.map(async (artistId) => await artistStore.fetch(artistId));
-      const artists = await* artistsPromises;
+      const artists = Promise.all(artistsPromises);
       if(opt_done) {
         opt_done(artists);
       }
@@ -126,6 +148,8 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
     _model.isProcessing = true;
     try {
       const artistList = await artistStore.fetchAll(facets);
+      _model.hasNextPage = angular.isDefined(artistList.pagingState);
+      _setNextPage(_model.hasNextPage, artistList.pagingState);
       if(opt_done) {
         opt_done(artistList.artists);
       }
@@ -146,7 +170,7 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
     try {
       const songsList = artist.songsList;
       const songPromises = songsList.map(async (songId) => await songStore.fetch(songId));
-      const songs = await* songPromises;
+      const songs = Promise.all(songPromises);
       if(opt_done) {
         opt_done(songs);
       }
@@ -155,5 +179,16 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
       $log.warn(error);
     }
     _model.isProcessing = false;
+  }
+
+  /**
+   * Sets the UUID of the next page.
+   * @param {boolean} hasNextPage
+   * @param {function} page
+   */
+  function _setNextPage(hasNextPage, page) {
+    if(hasNextPage) {
+      _model.nextPage = page.pagingState;
+    }
   }
 }

@@ -13,9 +13,13 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
     getAlbums: getAlbums,
     filterAlbums: filterAlbums,
     getAlbumSongs: getAlbumSongs,
+    getAlbumsByPage: getAlbumsByPage,
     album: null,
     albums: null,
     isProcessing: false,
+    isFetchingNewPage: false,
+    hasNextPage: false,
+    nextPage: null,
   };
   return _model;
 
@@ -62,7 +66,7 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
     _model.isProcessing = true;
     try {
       const songs = songIds.map(async (songId) => await songStore.fetch(songId));
-      _model.songs = await* songs;
+      _model.songs = Promise.all(songs);
       $rootScope.$new().$evalAsync();
     } catch(err) {
       _model.songs = [];
@@ -88,6 +92,24 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
   }
 
   /**
+   * Gets albums by page.
+   */
+  async function getAlbumsByPage() {
+    _model.isFetchingNewPage = true;
+    try {
+      const albumList = await albumStore.fetchByPage(_model.nextPage);
+      _model.albums = _model.albums.concat(albumList.albums);
+      _model.hasNextPage = angular.isDefined(albumList.pagingState);
+      _setNextPage(_model.hasNextPage, albumList.pagingState);
+      $rootScope.$new().$evalAsync();
+    }
+    catch(error) {
+      $log.warn(error);
+    }
+    _model.isFetchingNewPage = false;
+  }
+
+  /**
    * Gets a list of albums filtered by rating and genre.
    * @param {string} facets
    * @param {function} opt_done
@@ -96,6 +118,8 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
     _model.isProcessing = true;
     try {
       const albumList = await albumStore.fetchAll(facets);
+      _model.hasNextPage = angular.isDefined(albumList.pagingState);
+      _setNextPage(_model.hasNextPage, albumList.pagingState);
       if(opt_done) {
         opt_done(albumList.albums);
       }
@@ -104,5 +128,16 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
       $log.warn(error);
     }
     _model.isProcessing = false;
+  }
+
+  /**
+   * Sets the UUID of the next page.
+   * @param {boolean} hasNextPage
+   * @param {function} page
+   */
+  function _setNextPage(hasNextPage, page) {
+    if(hasNextPage) {
+      _model.nextPage = page.pagingState;
+    }
   }
 }
