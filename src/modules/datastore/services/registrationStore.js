@@ -21,11 +21,13 @@ function registrationStore (request, entityMapper, StatusResponseEntity) {
      * @return {StatusResponseEntity}
      */
     async registration(email, password, passwordConfirmation) {
-      const data = { email, password, passwordConfirmation };
+      // jscs:disable
+      const data = `email=${ email }&password=${ password}&passwordConfirmation=${ passwordConfirmation }`;
+      // jscs:enable
       const headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
       const response = await request.post(API_REQUEST_PATH, data, headers);
-      return entityMapper(response.data, StatusResponseEntity);
+      return entityMapper(response, StatusResponseEntity);
     },
   };
 }
