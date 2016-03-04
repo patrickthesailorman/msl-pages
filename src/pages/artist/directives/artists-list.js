@@ -1,6 +1,5 @@
 /**
  * Artist List directive.
- * @returns {restrict: string, scope: {artists: string}, template: *, controller: string, controllerAs: string}
  */
 export default function artistsList() {
 

@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 /**
  * Scroll listener directive.
- * @returns {restrict: string, scope: {}, link: link}
  */
 export default function scrollListener() {
 
