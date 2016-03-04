@@ -1,6 +1,5 @@
 /**
  * Artist box directive.
- * @returns {restrict: string, scope: {artist: string}, template: *, controller: string, controllerAs: string}
  */
 export default function artistsBox() {
 

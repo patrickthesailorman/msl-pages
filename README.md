@@ -168,3 +168,6 @@ To run the jersey api from the client directory use the npm task `serve-all` to 
 
 With the server running and from the server directory, run `mvn -f build.xml site` to generate the coverage reporter for the jersey API.
 
+#### Generate jsDocs
+
+From the `msl-pages` directory run the `esdoc -c esdoc.json` command, to generate documentation under `/esdcos`

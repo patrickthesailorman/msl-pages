@@ -2,7 +2,6 @@
  * Repeat complete directive to be used with ng-repeat.
  * Fires off the evaluation of an expression once ng-repeat has completed.
  * @example <div ng-repeat="i in [0,1,2,3,4]" repeat-complete="vm.repeatComplete()">Item</div>
- * @returns {restrict: string, link: Function}
  */
 export default function repeatComplete() {
   'ngInject';

@@ -1,7 +1,6 @@
 /**
  * Remove from library directive.
  * @param {object} libraryModel
- * @returns {restrict: string, scope: {type: string, id: string}, link: Function}
  */
 export default function removeFromLibrary (libraryModel) {
 

@@ -1,6 +1,5 @@
 /**
  * Album box directive.
- * @returns {restrict: string, scope: {album: string}, template: *, controller: string, controllerAs: string}
  */
 export default function albumBox() {
 

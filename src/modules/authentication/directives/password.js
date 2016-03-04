@@ -1,7 +1,6 @@
 /**
  * Password compliant validation.
  * @name password
- * @returns {require: string, link: link}
  */
 export default function password() {
   return {
