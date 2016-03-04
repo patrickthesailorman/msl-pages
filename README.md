@@ -170,4 +170,4 @@ With the server running and from the server directory, run `mvn -f build.xml sit
 
 #### Generate jsDocs
 
-From the `msl-pages` directory run the `esdoc -c esdoc.json` command, to generate documentation under `/esdcos`
+From the `msl-pages` directory run the `gen-jsdocs` command, to generate documentation under `build/esdcos`

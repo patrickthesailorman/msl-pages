@@ -4,32 +4,44 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "postinstall": "bower install",
     "validate": "eslint src && jscs src",
     "test": "karma start --singleRun true",
     "autotest": "karma start",
-    "build": "webpack --config webpack.config.js --progress && kss-node --config=kss-config.json",
+
+    "postinstall": "bower install",
+    "build": "webpack --config webpack.config.js --progress",
+
+    "gen-jsdocs": "esdoc -c esdoc.json",
     "styleguide": "kss-node --config=kss-config.json",
+    "ascii-docs": "asciidoctor ../docs/*.adoc",
+
+    "serve-jsdocs": "npm  run gen-jsdocs && http-server build/esdocs -p 3004",
     "serve-styleguide": "npm run styleguide && http-server build/styleguide -p 3003",
-    "serve-architecture-docs": "asciidoctor ../docs/*.adoc && http-server ../docs -p 3002",
-    "main-dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --development --progress",
-    "dev": "npm-run-all --parallel main-dev serve-styleguide serve-architecture-docs",
-    "serve-prod": "http-server ./build -p 3000",
-    "deploy": "(npm-run-all build --parallel serve-styleguide serve-architecture-docs serve-prod >> server_log) &",
+    "serve-architecture-docs": "npm run ascii-docs && http-server ../docs -p 3002",
+
+    "dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --development --progress",
+    "full-dev": "npm-run-all --parallel main-dev serve-styleguide serve-jsdocs serve-architecture-docs",
+    "serve-prod": "npm run build && http-server ./build -p 3000",
+    "deploy": "(npm-run-all build --parallel serve-styleguide serve-architecture-docs serve-jsdocs serve-prod >> server_log) &",
+
     "parse-swagger-src": "node swagger/resolve.js -- index.yaml",
     "parse-account-edge-src": "node swagger/resolve.js -- account-edge/index.yaml",
     "parse-catalog-edge-src": "node swagger/resolve.js -- catalog-edge/index.yaml",
     "parse-login-edge-src": "node swagger/resolve.js -- login-edge/index.yaml",
     "parse-player-edge-src": "node swagger/resolve.js -- player-edge/index.yaml",
     "parse-ratings-edge-src": "node swagger/resolve.js -- ratings-edge/index.yaml",
+
     "generate-swagger-html": "npm run parse-swagger-src && java -jar ../common/swagger-codegen-cli.jar generate -i swagger/api/swagger/swagger.yaml -l html -o ../docs/swagger -c swagger/package.json",
+
     "build-server": "cd ../server && mvn clean compile",
     "account-edge-server": "cd ../server/msl-account-edge && mvn -P dev clean jetty:run",
     "catalog-edge-server": "cd ../server/msl-catalog-edge && mvn -P dev clean jetty:run",
     "login-edge-server": "cd ../server/msl-login-edge && mvn -P dev clean jetty:run",
     "ratings-edge-server": "cd ../server/msl-ratings-edge && mvn -P dev clean jetty:run",
+
     "serve-all": "npm-run-all --parallel account-edge-server catalog-edge-server login-edge-server ratings-edge-server",
-    "build-and-serve": "npm run build-server && npm run deploy-server",
+    "build-and-serve": "npm run build-server && npm run serve-all",
+
     "serve-mock": "npm run parse-swagger-src && swagger project start --mock swagger"
   },
   "author": "",
