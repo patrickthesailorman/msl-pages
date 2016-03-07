@@ -89,7 +89,7 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
     _model.isProcessing = true;
     try {
       const albumsPromises = albumIds.map(async (albumId) => await albumStore.fetch(albumId));
-      const albums = await albumsPromises;
+      const albums = await Promise.all(albumsPromises);
       if(opt_done) {
         opt_done(albums);
       }
@@ -129,7 +129,7 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
     _model.isProcessing = true;
     try {
       const artistsPromises = artistIds.map(async (artistId) => await artistStore.fetch(artistId));
-      const artists = Promise.all(artistsPromises);
+      const artists = await Promise.all(artistsPromises);
       if(opt_done) {
         opt_done(artists);
       }
@@ -170,7 +170,7 @@ export default function artistModel(albumStore, artistStore, songStore, $log, $r
     try {
       const songsList = artist.songsList;
       const songPromises = songsList.map(async (songId) => await songStore.fetch(songId));
-      const songs = Promise.all(songPromises);
+      const songs = await Promise.all(songPromises);
       if(opt_done) {
         opt_done(songs);
       }

@@ -66,7 +66,7 @@ export default function albumModel(albumStore, songStore, $log, $rootScope) {
     _model.isProcessing = true;
     try {
       const songs = songIds.map(async (songId) => await songStore.fetch(songId));
-      _model.songs = Promise.all(songs);
+      _model.songs = await Promise.all(songs);
       $rootScope.$new().$evalAsync();
     } catch(err) {
       _model.songs = [];

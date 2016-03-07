@@ -29,7 +29,7 @@ export default class albumCtrl {
       $scope.$watch(() => albumModel.album,
         () => {
           if(albumModel.album !== null) {
-            albumModel.getAlbumSongs(albumModel.album.artistId, (songs) => {
+            albumModel.getAlbumSongs(albumModel.album.albumId, (songs) => {
               this.albumSongs = songs;
             });
             this.displaySongs = true;
