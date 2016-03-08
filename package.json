@@ -20,7 +20,7 @@
     "serve-architecture-docs": "npm run ascii-docs && http-server ../docs -p 3002",
 
     "dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --development --progress",
-    "full-dev": "npm-run-all --parallel main-dev serve-styleguide serve-jsdocs serve-architecture-docs",
+    "full-dev": "npm-run-all --parallel dev serve-styleguide serve-jsdocs serve-architecture-docs",
     "serve-prod": "npm run build && http-server ./build -p 3000",
     "deploy": "(npm-run-all build --parallel serve-styleguide serve-architecture-docs serve-jsdocs serve-prod >> server_log) &",
 
