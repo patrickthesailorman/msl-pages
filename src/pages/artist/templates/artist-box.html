@@ -1,7 +1,8 @@
 <div class="media-box">
   <md-card>
     <div class="media-box-inner">
-      <img class="media-box-inner-image" ng-src="{{artist.imageLink}}" alt="{{ artist.artistName }}"/>
+      <img class="media-box-inner-image" ng-if="!!artist.imageLink" ng-src="{{artist.imageLink}}" alt="{{ artist.artistName }}"/>
+      <img class="media-box-inner-image" ng-hide="!!artist.imageLink" src="../../../images/music-default-cover.png" alt="{{ artist.artistName }}"/>
       <div class="media-box-meta">
         <a href="" ui-sref="msl.artist({artistId: artist.artistId})">
           {{ artist.artistName }}
