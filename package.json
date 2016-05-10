@@ -13,7 +13,7 @@
 
     "gen-jsdocs": "esdoc -c esdoc.json",
     "styleguide": "kss-node --config=kss-config.json",
-    "ascii-docs": "asciidoctor ../docs/*.adoc",
+    "ascii-docs": "asciidoctor ../docs/asciidoc/*.adoc",
 
     "serve-jsdocs": "npm  run gen-jsdocs && http-server build/esdocs -p 3004",
     "serve-styleguide": "npm run styleguide && http-server build/styleguide -p 3003",
