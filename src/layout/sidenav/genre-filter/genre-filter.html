@@ -1,4 +1,4 @@
-<h3>Genres</h3>
+<h3>Filter by Genres</h3>
 <ul>
   <li ng-repeat="genre in vm.genres track by $index">
   <a href="" ng-click="vm.applyFilterByGenre(genre)" ng-class="{ 'active': vm.activeGenre(genre.facetId) }">{{genre.name}}</a>
