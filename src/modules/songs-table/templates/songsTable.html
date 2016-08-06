@@ -2,7 +2,7 @@
 <table class="table table-striped song-table" ng-if="!loading">
   <thead>
   <tr>
-    <th class="th-narrow"></th>
+    <th class="th-narrow">Duration</th>
     <th class="th-narrow">Run Time</th>
     <th>Song</th>
     <th>Album</th>
@@ -12,9 +12,6 @@
   </thead>
   <tbody>
   <tr ng-repeat="song in songs track by song.songId">
-    <td>
-      <play-button size="xs" song-id="song.songId"></play-button>
-    </td>
     <td>{{song.duration | timeFilter: 'MM:SS'}}</td>
     <td>
       <a href="" ui-sref="msl.song({songId: song.songId})">
