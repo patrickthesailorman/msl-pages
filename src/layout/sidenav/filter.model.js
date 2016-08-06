@@ -4,6 +4,7 @@ import _ from 'lodash';
  * Filters the songs, artists and albums by genre and rating.
  */
 export default class filterModel {
+
   /*@ngInject*/
 
   /**
@@ -40,7 +41,6 @@ export default class filterModel {
       this.selectedGenreId = null;
       this.selectedGenreName = null;
     }
-    this.selectedRating = null;
   }
 
   /**
@@ -49,8 +49,6 @@ export default class filterModel {
    */
   setSelectedRating(ratingId) {
     this.selectedRating = ratingId;
-    this.selectedGenreId = null;
-    this.selectedGenreName = null;
   }
 
   /**
@@ -126,7 +124,7 @@ export default class filterModel {
   _getFacets() {
     const rating = this.selectedRating;
     const genre = this.selectedGenreId;
-    const facets = _.filter([rating, genre], (facet) => facet != null).join();
+    const facets = _.filter([rating, genre], (facet) => facet != null).join(',');
     return facets.length > 0 ? facets : undefined;
   }
 }
