@@ -4,7 +4,8 @@
 <div ng-if="!vm.model.isProcessing">
   <div layout="row" class="msl-padding">
     <div class="image-container" flex="25" layout-padding flex-sm="100">
-      <img class="img-responsive" ng-src="{{vm.model.album.imageLink}}" alt="{{vm.model.album.albumName}}"/>
+      <img class="img-responsive" ng-if="!!vm.model.album.imageLink" ng-src="{{vm.model.album.imageLink}}" alt="{{vm.model.album.albumName}}"/>
+      <img class="img-responsive" ng-hide="!!vm.model.album.imageLink" src="../../../images/music-default-cover.png" alt="{{vm.model.album.albumName}}"/>
     </div>
     <div flex="75" class="msl-padding" flex-sm="100">
     <span class="pull-right">
