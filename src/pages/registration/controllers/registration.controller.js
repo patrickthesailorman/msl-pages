@@ -33,7 +33,7 @@ export default class registrationCtrl {
       );
 
       if(response.message === 'success') {
-        this.toastr.success('Successfully create account');
+        this.toastr.success('Successfully created account');
         await this.authentication.authenticate(this.email, this.password);
         this.$state.go('msl.home'); // If login is success then redirect user to home page
       }
