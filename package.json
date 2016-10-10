@@ -22,7 +22,6 @@
     "dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --development --progress",
     "full-dev": "npm-run-all --parallel dev serve-styleguide serve-jsdocs serve-architecture-docs",
     "serve-prod": "npm run build && http-server ./build -p 3000",
-    "deploy": "(npm-run-all build --parallel serve-styleguide serve-architecture-docs serve-jsdocs serve-prod >> server_log) &",
 
     "parse-swagger-src": "node swagger/resolve.js -- index.yaml",
     "parse-account-edge-src": "node swagger/resolve.js -- account-edge/index.yaml",
@@ -42,6 +41,7 @@
     "serve-all": "npm-run-all --parallel account-edge-server catalog-edge-server login-edge-server ratings-edge-server",
     "build-and-serve": "npm run build-server && npm run serve-all",
 
+    "deploy": "npm-run-all build --parallel serve-styleguide serve-architecture-docs serve-jsdocs serve-prod >> deploy_log",
     "serve-mock": "npm run parse-swagger-src && swagger project start --mock swagger"
   },
   "author": "",
