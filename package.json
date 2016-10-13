@@ -33,10 +33,10 @@
     "generate-swagger-html": "npm run parse-swagger-src && java -jar ../server/swagger-codegen-cli.jar generate -i swagger/api/swagger/swagger.yaml -l html -o ../docs/swagger -c swagger/package.json",
 
     "build-server": "cd ../server && mvn clean compile",
-    "account-edge-server": "cd ../server/msl-account-edge && mvn -P dev clean jetty:run",
-    "catalog-edge-server": "cd ../server/msl-catalog-edge && mvn -P dev clean jetty:run",
-    "login-edge-server": "cd ../server/msl-login-edge && mvn -P dev clean jetty:run",
-    "ratings-edge-server": "cd ../server/msl-ratings-edge && mvn -P dev clean jetty:run",
+    "account-edge-server": "cd ../server/msl-account-edge && java -jar target/msl-account-edge-1.1.0-jar-with-dependencies.jar",
+    "catalog-edge-server": "cd ../server/msl-catalog-edge && java -jar target/msl-catalog-edge-1.1.0-jar-with-dependencies.jar",
+    "login-edge-server": "cd ../server/msl-login-edge && && java -jar target/msl-login-edge-1.1.0-jar-with-dependencies.jar",
+    "ratings-edge-server": "cd ../server/msl-ratings-edge && java -jar target/msl-ratings-edge-1.1.0-jar-with-dependencies.jar",
 
     "serve-all": "npm-run-all --parallel account-edge-server catalog-edge-server login-edge-server ratings-edge-server",
     "build-and-serve": "npm run build-server && npm run serve-all",
