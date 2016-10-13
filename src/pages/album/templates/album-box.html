@@ -1,8 +1,8 @@
 <div class="media-box">
   <md-card>
     <div class="media-box-inner">
-      <img class="media-box-inner-image" ng-if="!!album.imageLink" ng-src="{{album.imageLink}}" alt="{{ album.artistName }}"/>
-      <img class="media-box-inner-image" ng-hide="!!album.imageLink" src="../../../images/music-default-cover.png" alt="{{ album.artistName }}"/>
+      <img class="media-box-inner-image" ng-if="!!album.imageLink && album.imageLink != 'null'" ng-src="{{album.imageLink}}" alt="{{ album.artistName }}"/>
+      <img class="media-box-inner-image" ng-hide="!!album.imageLink && album.imageLink != 'null'" src="../../../images/music-default-cover.png" alt="{{ album.artistName }}"/>
       <div class="media-box-meta">
         <a href="" ui-sref="msl.album({albumId: album.albumId})">
             {{ album.albumName }}
