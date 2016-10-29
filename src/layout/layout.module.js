@@ -11,6 +11,7 @@ import player from 'modules/player/module';
 import sideNavModule from './sidenav/sidenav.module.js';
 import navbarModule from './navbar/navbar.module.js';
 import layoutRoute from './layout.route.js';
+import layoutCtrl from './layout.controller.js';
 
 export default angular.module('msl.layout', [
   uiRouter,
@@ -20,4 +21,5 @@ export default angular.module('msl.layout', [
   sideNavModule,
 ])
   .config(layoutRoute)
+  .controller('layoutCtrl', layoutCtrl)
   .name;
