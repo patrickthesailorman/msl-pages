@@ -1,7 +1,6 @@
 #login-modal {
 
   position: fixed;
-  top: 30%;
 
   input {
     width: 215px;
@@ -20,7 +19,7 @@
     margin-top: 5px;
   }
 
-  button[type=submit] {
+  button {
     margin-right:20px;
   }
 }
