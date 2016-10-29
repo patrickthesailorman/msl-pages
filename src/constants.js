@@ -7,7 +7,7 @@ export const RATING_FACET_ID = 'A2';
 export const PAGE_SIZE = 12;
 
 // RESOURCES
-export const LOGIN_EDGE = `:${process.env.LOGIN_PORT}/login-edge/`;
-export const ACCOUNT_EDGE = `:${process.env.ACCOUNT_PORT}/account-edge/`;
-export const CATALOG_EDGE = `:${process.env.CATALOG_PORT}/catalog-edge/`;
-export const RATINGS_EDGE = `:${process.env.RATINGS_PORT}/ratings-edge/`;
+export const LOGIN_EDGE = `${process.env.LOGIN_EDGE}/login-edge/`;
+export const ACCOUNT_EDGE = `${process.env.ACCOUNT_EDGE}/account-edge/`;
+export const CATALOG_EDGE = `${process.env.CATALOG_EDGE}/catalog-edge/`;
+export const RATINGS_EDGE = `${process.env.RATINGS_EDGE}/ratings-edge/`;

@@ -8,20 +8,17 @@
     "test": "karma start --singleRun true",
     "autotest": "karma start",
 
-    "postinstall": "bower install",
-    "build": "webpack --config webpack.config.js --progress",
+    "build-dev": "webpack --config webpack.config.js --progress",
+    "build-prod": "webpack --config webpack.config.js --production --progress",
 
     "gen-jsdocs": "esdoc -c esdoc.json",
-    "styleguide": "kss-node --config=kss-config.json",
-    "ascii-docs": "asciidoctor ../docs/asciidoc/*.adoc",
+    "gen-styleguide": "kss-node --config=kss-config.json",
+    "gen-ascii-docs": "asciidoctor ../docs/asciidoc/*.adoc",
 
     "serve-jsdocs": "npm  run gen-jsdocs && http-server build/esdocs -p 3004",
-    "serve-styleguide": "npm run styleguide && http-server build/styleguide -p 3003",
-    "serve-architecture-docs": "npm run ascii-docs && http-server ../docs -p 3002",
-
-    "dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --development --progress",
-    "full-dev": "npm-run-all --parallel dev serve-styleguide serve-jsdocs serve-architecture-docs",
-    "serve-prod": "npm run build && http-server ./build -p 3000",
+    "serve-styleguide": "npm run gen-styleguide && http-server build/styleguide -p 3003",
+    "serve-architecture-docs": "npm run gen-ascii-docs && http-server ../docs -p 3002",
+    "serve-docs": "npm-run-all --parallel serve-styleguide serve-architecture-docs serve-jsdocs",
 
     "parse-swagger-src": "node swagger/resolve.js -- index.yaml",
     "parse-account-edge-src": "node swagger/resolve.js -- account-edge/index.yaml",
@@ -29,8 +26,17 @@
     "parse-login-edge-src": "node swagger/resolve.js -- login-edge/index.yaml",
     "parse-player-edge-src": "node swagger/resolve.js -- player-edge/index.yaml",
     "parse-ratings-edge-src": "node swagger/resolve.js -- ratings-edge/index.yaml",
-
     "generate-swagger-html": "npm run parse-swagger-src && java -jar ../server/swagger-codegen-cli.jar generate -i swagger/api/swagger/swagger.yaml -l html -o ../docs/swagger -c swagger/package.json",
+
+    "dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --progress",
+    "prod": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --production --progress",
+
+    "full-dev": "npm-run-all --parallel dev serve-docs",
+    "full-prod": "npm-run-all --parallel prod serve-docs",
+
+    "serve-dev": "npm run build-dev && http-server ./build -p 3000",
+    "serve-prod": "npm run build-prod && http-server ./build -p 80",
+    "serve-mock": "npm run parse-swagger-src && swagger project start --mock swagger",
 
     "build-server": "cd ../server && mvn clean compile",
     "account-edge-server": "cd ../server/msl-account-edge && java -jar target/msl-account-edge-1.1.0-jar-with-dependencies.jar",
@@ -41,8 +47,8 @@
     "serve-all": "npm-run-all --parallel account-edge-server catalog-edge-server login-edge-server ratings-edge-server",
     "build-and-serve": "npm run build-server && npm run serve-all",
 
-    "deploy": "npm-run-all build --parallel serve-styleguide serve-architecture-docs serve-jsdocs serve-prod >> deploy_log",
-    "serve-mock": "npm run parse-swagger-src && swagger project start --mock swagger"
+    "deploy-dev": "npm-run-all --parallel serve-docs serve-dev >> deploy_log",
+    "deploy-prod": "npm-run-all --parallel serve-docs serve-prod >> deploy_log"
   },
   "author": "",
   "license": "ISC",
