@@ -12,6 +12,6 @@ export default class layoutCtrl {
    */
   constructor($scope, $location) {
     this.$scope = $scope;
-    this.HOST = 'http://' + $location.host();
+    this.HOST = `http://${ $location.host() }`;
   }
 }

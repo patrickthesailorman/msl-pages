@@ -30,7 +30,8 @@ if (_.isUndefined(process.env.API_HOST)) {
 
   switch (process.env.NODE_ENV) {
     case "development":
-      LOGIN_EDGE_IP = ACCOUNT_EDGE_IP = CATALOG_EDGE_IP = RATINGS_EDGE_IP = process.env.API_HOST;
+      // on develop we use the host ip and the port, no need to specify ip for edge services
+      LOGIN_EDGE_IP = ACCOUNT_EDGE_IP = CATALOG_EDGE_IP = RATINGS_EDGE_IP = "";
       break;
     case "production":
       // TODO configure edge service ip's when AWS setup is done
