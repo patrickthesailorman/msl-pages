@@ -22,7 +22,7 @@ function registrationStore (request, entityMapper, StatusResponseEntity) {
      */
     async registration(email, password, passwordConfirmation) {
       // jscs:disable
-      const data = `email=${ email }&password=${ password}&passwordConfirmation=${ passwordConfirmation }`;
+      const data = `email=${ email }&password=${ password }&passwordConfirmation=${ passwordConfirmation }`;
       // jscs:enable
       const headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 

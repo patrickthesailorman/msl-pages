@@ -2,7 +2,7 @@
 import  dataStoreModule from 'modules/datastore/module';
 
 describe('logoutStore', () => {
-  const API_PATH = `:${process.env.LOGIN_PORT}/login-edge`;
+  const API_PATH = `${process.env.LOGIN_EDGE}/login-edge`;
 
   let logoutStore, request, entityMapper, StatusResponseEntity;
 

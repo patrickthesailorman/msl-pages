@@ -1,9 +1,9 @@
 import datastoreModule from 'modules/datastore/module';
 
 describe('request', () => {
-  const host = process.env.API_HOST;
+  const host = 'http://server';
   const A_PATH = '/api/v1';
-  const config = { sessionId: 1 };
+  const config = { sessionId: 1, withCredentials: false };
   const content = { songId: 2 };
   const expectedData = 'data';
 

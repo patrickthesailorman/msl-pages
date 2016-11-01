@@ -1,26 +1,24 @@
 import registrationModule from 'pages/registration/registration.module.js';
 
 describe('Registration Controller', () => {
-  let $scope, registrationCtrl, authentication, registrationStore, $state;
+  let $scope, registrationCtrl, authentication, registrationStore, $state, toastr;
 
   beforeEach(() => {
     angular.mock.module(registrationModule, ($provide) => {
       authentication = jasmine.createSpyObj('authentication', ['authenticate']);
       registrationStore = jasmine.createSpyObj('registrationStore', ['registration']);
       $state = jasmine.createSpyObj('$state', ['go']);
+      toastr = jasmine.createSpyObj('toastr', ['success']);
 
       $provide.value('authentication', authentication);
       $provide.value('registrationStore', registrationStore);
       $provide.value('$state', $state);
+      $provide.value('toastr', toastr);
     });
 
-    inject(($rootScope, $controller) => {
+    inject(($rootScope, _$controller_) => {
       $scope = $rootScope.$new();
-      registrationCtrl = () => {
-        const controller = $controller('registrationCtrl', { $scope });
-        $scope.$digest();
-        return controller;
-      };
+      registrationCtrl = _$controller_('registrationCtrl', { $scope });
     });
   });
 
@@ -35,13 +33,12 @@ describe('Registration Controller', () => {
 
     it('should call the registration store', (done) => {
       (async () => {
-        const controller = registrationCtrl();
+        registrationStore.registration.and.returnValue(Promise.resolve({message: 'success'}));
+        registrationCtrl.email = email;
+        registrationCtrl.password = password;
+        registrationCtrl.confirmationPassword = confirmationPassword;
 
-        controller.email = email;
-        controller.password = password;
-        controller.confirmationPassword = confirmationPassword;
-
-        await controller.submit();
+        await registrationCtrl.submit();
 
         expect(registrationStore.registration).toHaveBeenCalledWith(email, password, confirmationPassword);
         done();
@@ -50,11 +47,12 @@ describe('Registration Controller', () => {
 
     it('should authenticate the user', (done) => {
       (async () => {
-        const controller = registrationCtrl();
-        controller.email = email;
-        controller.password = password;
+      registrationStore.registration.and.returnValue(Promise.resolve({message: 'success'}));
+        authentication.authenticate.and.returnValue(Promise.resolve());
+        registrationCtrl.email = email;
+        registrationCtrl.password = password;
 
-        await controller.submit();
+        await registrationCtrl.submit();
 
         expect(authentication.authenticate).toHaveBeenCalledWith(email, password);
         done();
@@ -63,8 +61,11 @@ describe('Registration Controller', () => {
 
     it('should go to the home page', (done) => {
       (async () => {
-        const controller = registrationCtrl();
-        await controller.submit();
+        registrationStore.registration.and.returnValue(Promise.resolve({message: 'success'}));
+        registrationCtrl.email = email;
+        registrationCtrl.password = password;
+        registrationCtrl.confirmationPassword = confirmationPassword;
+        await registrationCtrl.submit();
 
         expect($state.go).toHaveBeenCalledWith('msl.home');
         done();
@@ -74,12 +75,11 @@ describe('Registration Controller', () => {
     it('should set hasError when an error is raised', (done) => {
       (async () => {
         const error = new Error();
-        const controller = registrationCtrl();
 
         registrationStore.registration.and.throwError(error);
-        await controller.submit();
+        await registrationCtrl.submit();
 
-        expect(controller.hasError).toBeTruthy();
+        expect(registrationCtrl.hasError).toBeTruthy();
         done();
       })();
     });
