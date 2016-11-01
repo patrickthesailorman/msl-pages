@@ -3,7 +3,7 @@ import {PAGE_SIZE} from 'constants.js';
 import datastoreModule from 'modules/datastore/module';
 
 describe('albumStore', () => {
-  const API_PATH = `:${process.env.CATALOG_PORT}/catalog-edge`;
+  const API_PATH = `${process.env.CATALOG_EDGE}/catalog-edge`;
   const error = new Error('an error');
 
   let albumStore, request, entityMapper, AlbumInfoEntity, AlbumListEntity, $log;

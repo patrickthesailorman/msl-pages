@@ -2,7 +2,7 @@ import {PAGE_SIZE} from 'constants.js';
 import datastoreModule from 'modules/datastore/module';
 
 describe('songStore', () => {
-  const API_PATH = `:${process.env.CATALOG_PORT}/catalog-edge`;
+  const API_PATH = `${process.env.CATALOG_EDGE}/catalog-edge`;
   const error = new Error('an error');
 
   let songStore, request, entityMapper, SongInfoEntity, SongListEntity, $log;

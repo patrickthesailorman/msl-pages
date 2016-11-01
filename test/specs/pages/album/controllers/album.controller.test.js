@@ -85,14 +85,14 @@ describe('albumCtrl', () => {
       $state: $state,
       $stateParams: $stateParams,
     });
-    albumModel.getAlbumSongs.and.callFake((artistId, cb) => {
+    albumModel.getAlbumSongs.and.callFake((albumId, cb) => {
       cb(songs);
     });
-    const newAlbum = { artistId: '1' };
+    const newAlbum = { albumId: '1' };
     albumModel.album = newAlbum;
     const songs = ['song'];
     $scope.$apply();
-    expect(albumModel.getAlbumSongs).toHaveBeenCalledWith(newAlbum.artistId, jasmine.any(Function));
+    expect(albumModel.getAlbumSongs).toHaveBeenCalledWith(newAlbum.albumId, jasmine.any(Function));
     expect(ctrl.albumSongs).toEqual(songs);
   });
 

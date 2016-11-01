@@ -3,7 +3,7 @@ import datastoreModule from 'modules/datastore/module';
 describe('rateArtistStore', () => {
   const ARTIST_ID = '2';
   const RATING = '4';
-  const API_PATH = `:${process.env.RATINGS_PORT}/ratings-edge/rateartist`;
+  const API_PATH = `${process.env.RATINGS_EDGE}/ratings-edge/rateartist`;
 
   let rateArtistStore, request, entityMapper, StatusResponseEntity;
 

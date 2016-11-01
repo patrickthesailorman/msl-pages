@@ -4,7 +4,7 @@ describe('registrationStore', () => {
   const EMAIL = 'a@a.com';
   const PASSWORD = 'password';
   const PASSWORDCONFIRMATION = 'password';
-  const API_PATH = `:${process.env.ACCOUNT_PORT}/account-edge/users`;
+  const API_PATH = `${process.env.ACCOUNT_EDGE}/account-edge/users`;
 
   let registrationStore, request, entityMapper, StatusResponseEntity;
 
@@ -33,7 +33,7 @@ describe('registrationStore', () => {
     it('should do a post request to the registration edge', (done) => {
       (async () => {
         await registrationStore.registration(EMAIL, PASSWORD, PASSWORD);
-        var params = { email: EMAIL, password: PASSWORD, passwordConfirmation: PASSWORDCONFIRMATION };
+        var params = `email=${EMAIL}&password=${PASSWORD}&passwordConfirmation=${PASSWORDCONFIRMATION}`;
         expect(request.post).toHaveBeenCalledWith(`${API_PATH}/register`, params, jasmine.any(Object));
         done();
       })();
@@ -42,7 +42,7 @@ describe('registrationStore', () => {
     it('should map the response into a StatusResponseEntity', (done) => {
       (async () => {
         await registrationStore.registration(EMAIL, PASSWORD, PASSWORDCONFIRMATION);
-        expect(entityMapper).toHaveBeenCalledWith(response.data, StatusResponseEntity);
+        expect(entityMapper).toHaveBeenCalledWith(response, StatusResponseEntity);
         done();
       })();
     });
