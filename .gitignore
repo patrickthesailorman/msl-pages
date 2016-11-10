@@ -3,3 +3,5 @@
 /build
 /coverage
 npm-debug.log
+swagger/api/swagger/swagger.yaml
+swagger/api/swagger/paths.yaml
