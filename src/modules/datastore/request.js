@@ -28,7 +28,6 @@ export default function request ($http, $location) {
      * @return {*}
      */
     async get(path, opt_config = {}) {
-      opt_config.withCredentials = false;
       const response = await $http.get(withHost(path), opt_config);
       return response.data;
     },
@@ -40,7 +39,6 @@ export default function request ($http, $location) {
      * @return {*}
      */
     async post(path, content, opt_config = {}) {
-      opt_config.withCredentials = false;
       const response = await $http.post(withHost(path), content, opt_config);
       return response.data;
     },
@@ -52,7 +50,6 @@ export default function request ($http, $location) {
      * @return {*}
      */
     async put(path, content = null, opt_config = {}) {
-      opt_config.withCredentials = false;
       const response = await $http.put(withHost(path), content, opt_config);
       return response.data;
     },
@@ -64,7 +61,6 @@ export default function request ($http, $location) {
      * @return {*}
      */
     async delete(path, content = null, opt_config = {}) {
-      opt_config.withCredentials = false;
       const response = await $http.delete(withHost(path), content, opt_config);
       return response.data;
     },
