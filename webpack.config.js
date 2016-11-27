@@ -24,6 +24,11 @@ if (_.isUndefined(process.env.NODE_ENV)) {
  */
 if (_.isUndefined(process.env.API_HOST)) {
 
+  var LOGIN_EDGE_PORT = "9001";
+  var ACCOUNT_EDGE_PORT = "9002";
+  var CATALOG_EDGE_PORT = "9003";
+  var RATINGS_EDGE_PORT = "9004";
+
   var LOGIN_EDGE_IP, ACCOUNT_EDGE_IP, CATALOG_EDGE_IP, RATINGS_EDGE_IP;
 
   process.env.API_HOST = "http://127.0.0.1";
@@ -42,13 +47,17 @@ if (_.isUndefined(process.env.API_HOST)) {
       break;
   }
 
+  if (argv.zuul) {
+    LOGIN_EDGE_PORT = ACCOUNT_EDGE_PORT = CATALOG_EDGE_PORT = RATINGS_EDGE_PORT = "9000";
+  }
+
   if (argv.mock || process.env.npm_config_mock) {
     process.env.LOGIN_EDGE = process.env.ACCOUNT_EDGE = process.env.CATALOG_EDGE = process.env.RATINGS_EDGE = "http://127.0.0.1:10010";
   } else {
-    process.env.LOGIN_EDGE = LOGIN_EDGE_IP + ":9001";
-    process.env.ACCOUNT_EDGE = ACCOUNT_EDGE_IP + ":9002";
-    process.env.CATALOG_EDGE = CATALOG_EDGE_IP + ":9003";
-    process.env.RATINGS_EDGE = RATINGS_EDGE_IP + ":9004";
+    process.env.LOGIN_EDGE = LOGIN_EDGE_IP + ":" + LOGIN_EDGE_PORT;
+    process.env.ACCOUNT_EDGE = ACCOUNT_EDGE_IP + ":" + ACCOUNT_EDGE_PORT;
+    process.env.CATALOG_EDGE = CATALOG_EDGE_IP + ":" + CATALOG_EDGE_PORT;
+    process.env.RATINGS_EDGE = RATINGS_EDGE_IP + ":" + RATINGS_EDGE_PORT;
   }
 }
 

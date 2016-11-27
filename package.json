@@ -9,6 +9,7 @@
     "autotest": "karma start",
 
     "build-dev": "webpack --config webpack.config.js --progress",
+    "build-dev-zuul": "webpack --config webpack.config.js --zuul --progress",
     "build-prod": "webpack --config webpack.config.js --production --progress",
 
     "gen-jsdocs": "esdoc -c esdoc.json",
@@ -30,11 +31,14 @@
 
     "dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --progress",
     "prod": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --production --progress",
+    "dev-zuul": "npm run validate && webpack-dev-server --port 3000 --zuul --content-base build/ --progress",
+    "prod-zuul": "npm run validate && webpack-dev-server --port 3000 --zuul --content-base build/ --progress",
 
     "full-dev": "npm-run-all --parallel dev serve-docs",
     "full-prod": "npm-run-all --parallel prod serve-docs",
 
     "serve-dev": "npm run build-dev && http-server ./build -p 3000",
+    "serve-dev-zuul": "npm run build-dev-zuul && http-server ./build -p 3000",
     "serve-prod": "npm run build-prod && http-server ./build -p 80",
     "serve-mock": "npm run parse-swagger-src && swagger project start --mock swagger",
 
@@ -48,6 +52,7 @@
     "build-and-serve": "npm run build-server && npm run serve-all",
 
     "deploy-dev": "npm-run-all --parallel serve-docs serve-dev >> deploy_log",
+    "deploy-dev-zuul": "npm-run-all --parallel serve-docs serve-dev-zuul >> deploy_log",
     "deploy-prod": "npm-run-all --parallel serve-docs serve-prod >> deploy_log"
   },
   "author": "",
