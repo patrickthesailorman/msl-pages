@@ -14,52 +14,40 @@ var exclude = /node_modules|bower_components/;
  * Environment is passed by arguments because windows and unix handled environment
  * variables differently.
  */
-if (_.isUndefined(process.env.NODE_ENV)) {
-  process.env.NODE_ENV = argv.production ? "production" : "development";
+
+function setEnvironment () {
+  if (_.isUndefined(process.env.NODE_ENV)) {
+    if (argv.prod || argv.production) {
+        process.env.NODE_ENV = "production";
+        process.env.API_HOST = "http://msl.kenzan-devops.com";
+    } else if (argv.dev || argv.development) {
+        process.env.NODE_ENV = "development";
+        process.env.API_HOST = "http://msl.kenzan-dev.com";
+    } else {
+        process.env.NODE_ENV = "local";
+        process.env.API_HOST = "http://localhost";
+    }
+  }
 }
 
-/**
- * If api host environment is not defined and api mock param is set then
- * set api host environment as swagger host.
- */
-if (_.isUndefined(process.env.API_HOST)) {
-
-  var LOGIN_EDGE_PORT = "9001";
-  var ACCOUNT_EDGE_PORT = "9002";
-  var CATALOG_EDGE_PORT = "9003";
-  var RATINGS_EDGE_PORT = "9004";
-
-  var LOGIN_EDGE_IP, ACCOUNT_EDGE_IP, CATALOG_EDGE_IP, RATINGS_EDGE_IP;
-
-  process.env.API_HOST = "http://127.0.0.1";
-
-  switch (process.env.NODE_ENV) {
-    case "development":
-      // on develop we use the host ip and the port, no need to specify ip for edge services
-      LOGIN_EDGE_IP = ACCOUNT_EDGE_IP = CATALOG_EDGE_IP = RATINGS_EDGE_IP = "";
-      break;
-    case "production":
-      // TODO configure edge service ip's when AWS setup is done
-      LOGIN_EDGE_IP = "";
-      ACCOUNT_EDGE_IP = "";
-      CATALOG_EDGE_IP = "";
-      RATINGS_EDGE_IP = "";
-      break;
-  }
-
-  if (argv.zuul) {
-    LOGIN_EDGE_PORT = ACCOUNT_EDGE_PORT = CATALOG_EDGE_PORT = RATINGS_EDGE_PORT = "9000";
-  }
-
+function setPorts () {
   if (argv.mock || process.env.npm_config_mock) {
-    process.env.LOGIN_EDGE = process.env.ACCOUNT_EDGE = process.env.CATALOG_EDGE = process.env.RATINGS_EDGE = "http://127.0.0.1:10010";
+      process.env.LOGIN_EDGE = process.env.ACCOUNT_EDGE = process.env.CATALOG_EDGE = process.env.RATINGS_EDGE = "http://127.0.0.1:10010";
   } else {
-    process.env.LOGIN_EDGE = LOGIN_EDGE_IP + ":" + LOGIN_EDGE_PORT;
-    process.env.ACCOUNT_EDGE = ACCOUNT_EDGE_IP + ":" + ACCOUNT_EDGE_PORT;
-    process.env.CATALOG_EDGE = CATALOG_EDGE_IP + ":" + CATALOG_EDGE_PORT;
-    process.env.RATINGS_EDGE = RATINGS_EDGE_IP + ":" + RATINGS_EDGE_PORT;
+    if (argv.zuul) {
+      process.env.LOGIN_EDGE = process.env.ACCOUNT_EDGE = process.env.CATALOG_EDGE = process.env.RATINGS_EDGE = (process.env.API_HOST + ":9000");
+    } else {
+      process.env.LOGIN_EDGE = process.env.API_HOST + ":9001";
+      process.env.ACCOUNT_EDGE = process.env.API_HOST + ":9002";
+      process.env.CATALOG_EDGE = process.env.API_HOST + ":9003";
+      process.env.RATINGS_EDGE = process.env.API_HOST + ":9004";
+    }
   }
 }
+
+setEnvironment();
+setPorts();
+
 
 module.exports = {
   context: context,
