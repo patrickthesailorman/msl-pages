@@ -8,9 +8,12 @@
     "test": "karma start --singleRun true",
     "autotest": "karma start",
 
-    "build-dev": "webpack --config webpack.config.js --progress",
-    "build-dev-zuul": "webpack --config webpack.config.js --zuul --progress",
+    "build-local": "webpack --config webpack.config.js --local --progress",
+    "build-local-zuul": "webpack --config webpack.config.js --local --zuul --progress",
+    "build-dev": "webpack --config webpack.config.js --dev --progress",
+    "build-dev-zuul": "webpack --config webpack.config.js --dev --zuul --progress",
     "build-prod": "webpack --config webpack.config.js --production --progress",
+    "build-prod-zuul": "webpack --config webpack.config.js --production --zuul --progress",
 
     "gen-jsdocs": "esdoc -c esdoc.json",
     "gen-styleguide": "kss-node --config=kss-config.json",
@@ -29,17 +32,24 @@
     "parse-ratings-edge-src": "node swagger/resolve.js -- ratings-edge/index.yaml",
     "generate-swagger-html": "npm run parse-swagger-src && java -jar ../server/swagger-codegen-cli.jar generate -i swagger/api/swagger/swagger.yaml -l html -o ../docs/swagger -c swagger/package.json",
 
-    "dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --progress",
+    "local": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --local --progress",
+    "dev": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --dev --progress",
     "prod": "npm run validate && webpack-dev-server --port 3000 --content-base build/ --production --progress",
-    "dev-zuul": "npm run validate && webpack-dev-server --port 3000 --zuul --content-base build/ --progress",
-    "prod-zuul": "npm run validate && webpack-dev-server --port 3000 --zuul --content-base build/ --progress",
 
+    "local-zuul": "npm run validate && webpack-dev-server --port 3000 --local --zuul --content-base build/ --progress",
+    "dev-zuul": "npm run validate && webpack-dev-server --port 3000 --dev --zuul --content-base build/ --progress",
+    "prod-zuul": "npm run validate && webpack-dev-server --port 3000 --prod --zuul --content-base build/ --progress",
+
+    "full-local": "npm-run-all --parallel local serve-docs",
     "full-dev": "npm-run-all --parallel dev serve-docs",
     "full-prod": "npm-run-all --parallel prod serve-docs",
 
+    "serve-local": "npm run build-local && http-server ./build -p 3000",
+    "serve-local-zuul": "npm run build-local-zuul && http-server ./build -p 3000",
     "serve-dev": "npm run build-dev && http-server ./build -p 3000",
     "serve-dev-zuul": "npm run build-dev-zuul && http-server ./build -p 3000",
     "serve-prod": "npm run build-prod && http-server ./build -p 80",
+    "serve-prod-zuul": "npm run build-prod-zuul && http-server ./build -p 80",
     "serve-mock": "npm run parse-swagger-src && swagger project start --mock swagger",
 
     "build-server": "cd ../server && mvn clean compile",
@@ -51,9 +61,12 @@
     "serve-all": "npm-run-all --parallel account-edge-server catalog-edge-server login-edge-server ratings-edge-server",
     "build-and-serve": "npm run build-server && npm run serve-all",
 
+    "deploy-local": "npm-run-all --parallel serve-docs serve-local >> deploy_log",
+    "deploy-local-zuul": "npm-run-all --parallel serve-docs serve-local-zuul >> deploy_log",
     "deploy-dev": "npm-run-all --parallel serve-docs serve-dev >> deploy_log",
     "deploy-dev-zuul": "npm-run-all --parallel serve-docs serve-dev-zuul >> deploy_log",
-    "deploy-prod": "npm-run-all --parallel serve-docs serve-prod >> deploy_log"
+    "deploy-prod": "npm-run-all --parallel serve-docs serve-prod >> deploy_log",
+    "deploy-prod-zuul": "npm-run-all --parallel serve-docs serve-prod-zuul >> deploy_log"
   },
   "author": "",
   "license": "ISC",
