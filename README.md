@@ -176,7 +176,7 @@ When the Swagger mock server is running, you can access the interactive Swagger 
 The interactive documentation lets you view the available operations and even lets you test them in real time by sending parameters and seeing responses.
 
  ## LICENSE
-Copyright 2015 Kenzan, LLC <http://kenzan.com>
+Copyright 2017 Kenzan, LLC <http://kenzan.com>
  
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
